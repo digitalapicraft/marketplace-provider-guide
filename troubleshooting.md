@@ -1,3 +1,12 @@
+This chapter is a fast reference for the situations that interrupt routine work — a gateway connection that will not test green, a governance score that refuses to update, a subscription that stays pending longer than it should, a webhook that stops delivering. Each row in the table below pairs a symptom you are seeing on the screen with the most likely cause and a one-or-two-step fix. The detailed entries that follow expand the same list with reproduction notes and the exact navigation path to the resolution surface.
+
+Use this chapter in two passes. First, scan the symptom column for a phrase that matches what you are looking at. If the cause and fix are obvious, follow the fix and you are done. If the symptom is not in the table, or if the suggested fix does not resolve it, jump to the matching detailed entry below for the longer diagnostic procedure. Both views cover the same set of issues at different depths.
+
+
+## Symptom-cause-fix table
+
+| Symptom | Likely cause | What to do |
+| --- | --- | --- |
 | Gateway connection test fails with "endpoint unreachable" | The admin URL is wrong, points at the runtime endpoint, or your network blocks outbound calls to the gateway. | Open the connection in **Edit**, replace the URL with the gateway's admin endpoint (not the runtime endpoint), and click **Test connection** again. |
 | API import returns 0 APIs | The connected service account or API key lacks read permission, or the gateway has no APIs in the chosen scope (organisation, region, project). | Confirm the credential has the gateway's reader role, then re-run **Import APIs** from **Existing API Sources**. |
 | Governance score won't update after edit | The score reflects the last completed scan; an edit to the spec doesn't trigger a new scan automatically. | Open the Governance Report and click **Run scan** for the API, or click **Scan All** to rescan every API. |
@@ -10,6 +19,8 @@
 | API Product **Publish** button greyed out | The API Product has no APIs attached, no plan, or its **Visibility** isn't set. | Open the API Product, attach at least one API, attach a plan with quota and rate-limit values, choose a **Visibility**, and the button enables. |
 | Webhook deliveries failing | The receiving endpoint returned a non-2xx status, or your webhook secret rotated and the receiver is rejecting the signature. | Open **SETTINGS > Webhooks**, view the failure log, fix the receiving endpoint, and click **Replay** on the failed deliveries. |
 | Toast says "Save failed: required field" but no field is highlighted | The required field is on a tab or accordion section you haven't opened. | Scroll to the top of the form, switch to the **Advanced** or **Plans** tab, and look for a tab title with a red dot indicating an error. |
+
+## Detailed entries
 
 ### Gateway connection test fails with "endpoint unreachable"
 
