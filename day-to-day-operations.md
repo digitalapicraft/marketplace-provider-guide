@@ -1,5 +1,3 @@
-# Day-to-day operations
-
 Once your portal is configured and APIs are flowing, daily operations cover content updates (pages and articles), system-wide announcements, governance rule tuning, webhook delivery monitoring, and email-template customisation. This chapter walks through each of these surfaces. Most of these tasks live under **SETTINGS** or **ADMINISTRATION** in the left sidebar — the two grey section headers below the API-management links. None of them require code or developer support; an Org Admin or Portal Admin can complete every task in this chapter from the browser.
 
 You will learn:

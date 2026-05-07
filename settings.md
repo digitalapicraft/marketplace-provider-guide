@@ -1,5 +1,3 @@
-# Settings & administration
-
 Most settings in the marketplace are Org-scoped and live with your Org Admin — branding, SSO, custom roles, system-wide email templates. This chapter covers the smaller set of settings you can change yourself as an API Provider: your personal profile, your notification preferences, the layout of your dashboard, and your default landing page. Each task is short and runs only once. Where a setting requires Org Admin rights, the task points to the Org Admin guide rather than walking through the change.
 
 ## Personal-scope settings

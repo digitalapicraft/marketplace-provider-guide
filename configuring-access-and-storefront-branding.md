@@ -1,5 +1,3 @@
-# Configuring access and storefront branding
-
 This chapter covers the operator-facing surfaces under **SETTINGS** — sign-in methods, single sign-on (SSO/SAML), and how the public storefront looks. These are typically Org Admin or Portal Admin tasks. If you are an API Provider without those permissions, your Org Admin owns these screens and you can request changes from them. The chapter walks through enabling email-and-password sign-in, configuring SAML against a corporate identity provider, branding the public catalog with your logo and colours, and switching the active theme. By the end of the chapter, your marketplace will sign users in the way your security team requires and look like part of your company rather than a default template.
 
 You will learn:

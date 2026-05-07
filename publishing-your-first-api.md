@@ -1,5 +1,3 @@
-# Publishing your first API
-
 Up to this point your API has lived inside the marketplace as a draft. The gateway connection feeds bytes in, the governance pass confirms the API is safe to expose, but no one outside your team can see it yet. This chapter takes you the last mile: complete the consumer-facing metadata, choose the audience the API is visible to, transition the moderation state from draft to published, and verify the entry appears in the public catalog.
 
 You will learn:

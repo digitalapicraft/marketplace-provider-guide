@@ -1,5 +1,3 @@
-# Importing your first API
-
 With a gateway connection in place, the marketplace can pull your APIs into its catalog. There are two paths: an **automatic import** that reads everything in the connected gateway and creates one catalog entry per spec, and a **manual create** flow that uses the **Create APIs** wizard. Most teams use the automatic path for the first wave so the catalog mirrors the gateway, then use the manual path for one-off APIs not yet behind the gateway.
 
 You will learn:

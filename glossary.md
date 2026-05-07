@@ -1,5 +1,3 @@
-# Glossary
-
 Active
 :   A subscription state. The consumer can call the API Product within the plan's quota and rate-limit settings.
 

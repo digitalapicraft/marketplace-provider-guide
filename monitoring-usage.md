@@ -1,5 +1,3 @@
-# Monitoring usage
-
 Once your APIs are live and consumers are calling them, you need a single place to see how they are performing. The marketplace provides a built-in **Analytics** dashboard that aggregates request volume, error rates, and per-API and per-consumer breakdowns. This chapter walks you through opening the dashboard, narrowing the view to the slice of traffic you care about, exporting the data for offline analysis, and locating the alerting hooks the marketplace exposes.
 
 You will learn:

@@ -1,5 +1,3 @@
-# Connecting your first gateway
-
 Before you can publish APIs through the marketplace, you need to tell it where your APIs already live. You do that by adding a **Gateway Connection** under **Manage API Sources**. Connecting a gateway is a one-time setup; subsequent imports and publishes reuse the connection. The marketplace acts as a federated catalog — APIs stay on your gateway and the connection only reads metadata.
 
 You will learn:

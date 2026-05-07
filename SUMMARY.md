@@ -1,10 +1,6 @@
 # Table of contents
 
-## Introduction
-
 * [Introduction](introduction.md)
-
-## Getting started
 
 * [Getting started](getting-started.md)
 

@@ -1,5 +1,3 @@
-# Managing your team
-
 Running the marketplace is a team activity. You bring in colleagues to import APIs, review governance, design Products and plans, approve consumers, and monitor traffic. Everyone you work with sits inside one **Organisation** — the unit of multi-tenancy on the marketplace. Inside that Organisation, **Members** are the individual users who log in. **Teams** group those members into smaller units so that a Payments team sees Payments APIs and a Cards team sees Cards APIs. **Roles** decide what each member can do — import APIs, approve subscriptions, change settings, invite more members. This chapter walks you through the four surfaces you use to run all of that: viewing your Organisation, inviting members, organising them into teams, and assigning roles.
 
 You will learn:

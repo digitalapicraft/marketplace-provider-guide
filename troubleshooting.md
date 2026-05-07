@@ -1,5 +1,3 @@
-# Troubleshooting
-
 | Gateway connection test fails with "endpoint unreachable" | The admin URL is wrong, points at the runtime endpoint, or your network blocks outbound calls to the gateway. | Open the connection in **Edit**, replace the URL with the gateway's admin endpoint (not the runtime endpoint), and click **Test connection** again. |
 | API import returns 0 APIs | The connected service account or API key lacks read permission, or the gateway has no APIs in the chosen scope (organisation, region, project). | Confirm the credential has the gateway's reader role, then re-run **Import APIs** from **Existing API Sources**. |
 | Governance score won't update after edit | The score reflects the last completed scan; an edit to the spec doesn't trigger a new scan automatically. | Open the Governance Report and click **Run scan** for the API, or click **Scan All** to rescan every API. |

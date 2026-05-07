@@ -1,5 +1,3 @@
-# Exposing APIs to AI agents
-
 Your APIs are valuable to humans calling them with code. They are equally valuable to AI agents — Claude, GPT, your own LLM-powered apps — that need to call them as tools. The marketplace provides two complementary surfaces for this. **MCP Servers** wrap selected APIs in the Model Context Protocol so any MCP-aware agent can discover and use them. **API GPT** is the chat assistant inside the marketplace itself, with a configurable LLM backend. This chapter walks you through both.
 
 You will learn:

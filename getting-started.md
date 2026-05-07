@@ -1,5 +1,3 @@
-# Getting started
-
 Before connecting a gateway or importing an API, spend ten minutes orienting yourself in the marketplace. Sign in once, learn the four sidebar groups used in routine work, and recognise the common UI patterns — status badges, search and filter controls, action menus — that repeat on every list page. This chapter walks you through your first sign-in, the Portal Admin dashboard you land on, the four left-sidebar groups (**API MANAGEMENT**, **ADMINISTRATION**, **SETTINGS**, **ORGANISATION**), and the conventions you will see on every page from chapter 3 onwards.
 
 ## Signing in

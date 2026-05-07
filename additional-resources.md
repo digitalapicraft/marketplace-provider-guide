@@ -1,5 +1,3 @@
-# Additional resources
-
 [Contact support](mailto:support@digitalapicraft.com)
 
 (no public community channel yet — check with your account manager)

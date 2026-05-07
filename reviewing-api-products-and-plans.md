@@ -1,5 +1,3 @@
-# Reviewing API Products and Plans
-
 An **API Product** bundles one or more APIs into a single subscription unit — one key, one quota, one rate limit, one row on the consumer dashboard. A **Plan** attaches to a Product and carries the operational terms: how many calls per period, how fast they can arrive, what happens at the cap. On this marketplace, API Products and their Plans are synchronised from the connected gateway and are not authored here. The gateway is the system of record for bundle structure, Plan name, quota, and rate limit; the marketplace mirrors those values for consumers to read but does not author them.
 
 You will learn:

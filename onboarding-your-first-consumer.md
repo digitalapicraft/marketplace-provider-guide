@@ -1,5 +1,3 @@
-# Onboarding your first consumer
-
 Once your API Product is published, the next event in the marketplace is a subscription request: a consumer signs in to the portal, locates your Product, registers an app, and clicks **Subscribe**. Until you act on that request, the consumer cannot make a call. This chapter walks through the subscription lifecycle, how to find pending requests, how to approve them, how the consumer is notified, where the first calls land, and how to suspend or revoke access if the relationship breaks down.
 
 You will learn:

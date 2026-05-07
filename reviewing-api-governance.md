@@ -1,5 +1,3 @@
-# Reviewing API governance
-
 Once your APIs are in the catalog, the marketplace runs them through a configurable set of linting rules and produces a per-API score. The score tells consumers (and auditors) whether your APIs follow your organisation's standards for security, naming, documentation completeness, and error-handling shape. The score is the gate between Draft and Published — fix findings before consumers see the API, not after.
 
 You will learn:

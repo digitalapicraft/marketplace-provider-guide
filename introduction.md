@@ -1,5 +1,3 @@
-# Introduction
-
 Marketplace is an enterprise API marketplace and operations console. It serves three roles for the organisation that deploys it.
 
 As a **public storefront**, the marketplace renders a branded developer catalog through which external and internal consumers discover APIs, read interactive documentation, request subscriptions, and manage the credentials issued to their applications. As a **multi-gateway control plane**, it integrates with the major commercial and open-source API gateways — Apigee, Apigee X, Kong, MuleSoft, AWS API Gateway, Azure API Management, IBM API Connect, Tyk, APISIX, and Aelix — so a single console covers every gateway regardless of where the APIs run. As a **governance and operations console**, it scores every API against configurable linting rulesets, routes subscription approvals through a defined workflow, surfaces time-series provider analytics, exposes an MCP server and API GPT layer for AI-agent integrations, and emits webhooks and email notifications on every operational event.

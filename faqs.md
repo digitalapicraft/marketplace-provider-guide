@@ -1,5 +1,3 @@
-# FAQs
-
 ### Q: How many gateways can I connect?
 
 The marketplace supports any number of gateway connections. Each connection is treated as an independent source, including multiple connections to the same gateway product (for example a separate Apigee X connection per GCP project, or a separate AWS connection per region). There is no licensed cap on the number of connections an Organisation can hold.
