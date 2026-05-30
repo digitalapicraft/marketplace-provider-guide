@@ -1,10 +1,14 @@
+---
+icon: circle-question
+---
+
 ### Q: How many gateways can I connect?
 
 The marketplace supports any number of gateway connections. Each connection is treated as an independent source, including multiple connections to the same gateway product (for example a separate Apigee X connection per GCP project, or a separate AWS connection per region). There is no licensed cap on the number of connections an Organisation can hold.
 
 ### Q: How do I rotate a gateway credential?
 
-Open API MANAGEMENT > Manage API Sources, locate the connection under Existing API Sources, and click Edit. Paste the new credential into the secret field — the marketplace blanks the existing value for safety, so clearing it first is not required. Click Test connection to verify, then Save. Already-imported APIs continue to work; the next import or scan uses the new credential.
+Open API MANAGEMENT > Manage API Sources, locate the connection under Existing API Sources, and click Edit. Paste the new credential into the secret field. The marketplace blanks the existing value for safety, so clearing it first is not required. Click Test connection to verify, then Save. Already-imported APIs continue to work; the next import or scan uses the new credential.
 
 ### Q: Can two API Providers from the same Organisation publish the same API?
 
@@ -20,11 +24,11 @@ Yes. The marketplace is the publishing and operations console; nothing prevents 
 
 ### Q: Does the marketplace store consumer call payloads?
 
-No. The marketplace stores metadata about every call — timestamp, API, consumer App, status code, latency — for analytics, but it does not store request or response bodies. Payloads remain in the gateway's logging tier as configured. For payload-level audit, export from your gateway, not from the marketplace.
+No. The marketplace stores metadata about every call. Timestamp, API, consumer App, status code, latency. For analytics, but it does not store request or response bodies. Payloads remain in the gateway's logging tier as configured. For payload-level audit, export from your gateway, not from the marketplace.
 
 ### Q: How long is analytics data retained?
 
-The default retention is 90 days for raw time-series data and 13 months for daily aggregates. Your Org Admin can extend retention on tiered plans. To export beyond the retention window, use the Export action on the Provider Analytics page on a regular cadence — daily or weekly — and store the exports in your own data warehouse.
+The default retention is 90 days for raw time-series data and 13 months for daily aggregates. Your Org Admin can extend retention on tiered plans. To export beyond the retention window, use the Export action on the Provider Analytics page on a regular cadence. Daily or weekly. And store the exports in your own data warehouse.
 
 ### Q: Can I export data via API?
 
@@ -32,7 +36,7 @@ Yes. The marketplace exposes an internal REST API for the same data shown in the
 
 ### Q: How do I move from Draft to Published without losing my edits?
 
-The Draft and Published states share the same underlying record; the marketplace does not fork your edits. When you click Publish, the current Draft becomes the Published version. Subsequent edits go directly to the Published version with no separate Draft branch — there is no "Save as Draft" while a Published version exists. For a staging copy to experiment in, clone the API or API Product first, work on the clone, and publish only when ready.
+The Draft and Published states share the same underlying record; the marketplace does not fork your edits. When you click Publish, the current Draft becomes the Published version. Subsequent edits go directly to the Published version with no separate Draft branch. There is no "Save as Draft" while a Published version exists. For a staging copy to experiment in, clone the API or API Product first, work on the clone, and publish only when ready.
 
 ### Q: How does API GPT decide which APIs to expose?
 
@@ -40,7 +44,7 @@ API GPT is backed by the MCP Server bundle configured under ADMINISTRATION > MCP
 
 ### Q: Can I have more than one plan per API Product?
 
-Yes. An API Product can carry as many plans as required — typically a free tier, one or more paid tiers, and an enterprise tier with custom limits. Each plan defines its own quota and rate-limit settings, and consumers select a plan when they subscribe. Adding or removing plans on a published API Product does not affect existing subscriptions; they remain on the plan originally subscribed to until migrated.
+Yes. An API Product can carry as many plans as required. Typically a free tier, one or more paid tiers, and an enterprise tier with custom limits. Each plan defines its own quota and rate-limit settings, and consumers select a plan when they subscribe. Adding or removing plans on a published API Product does not affect existing subscriptions; they remain on the plan originally subscribed to until migrated.
 
 ### Q: How do I tell which API a consumer is calling when traffic spikes?
 
@@ -48,7 +52,7 @@ Open ADMINISTRATION > Provider Analytics, set the time range to the spike window
 
 ### Q: What is the difference between a webhook and a system notification?
 
-A **system notification** is an in-product message posted for users to read in their inbox — release notes, outage announcements, policy updates. A **webhook** is an outbound HTTP callback the marketplace sends to a system you control when an event occurs (subscription created, governance scan completed). Use system notifications for human readers; use webhooks for downstream automation.
+A **system notification** is an in-product message posted for users to read in their inbox. Release notes, outage announcements, policy updates. A **webhook** is an outbound HTTP callback the marketplace sends to a system you control when an event occurs (subscription created, governance scan completed). Use system notifications for human readers; use webhooks for downstream automation.
 
 ### Q: Can I delete an API I imported by mistake?
 

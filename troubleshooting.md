@@ -1,7 +1,8 @@
-This chapter is a fast reference for the situations that interrupt routine work — a gateway connection that will not test green, a governance score that refuses to update, a subscription that stays pending longer than it should, a webhook that stops delivering. Each row in the table below pairs a symptom you are seeing on the screen with the most likely cause and a one-or-two-step fix. The detailed entries that follow expand the same list with reproduction notes and the exact navigation path to the resolution surface.
+---
+icon: screwdriver-wrench
+---
 
-Use this chapter in two passes. First, scan the symptom column for a phrase that matches what you are looking at. If the cause and fix are obvious, follow the fix and you are done. If the symptom is not in the table, or if the suggested fix does not resolve it, jump to the matching detailed entry below for the longer diagnostic procedure. Both views cover the same set of issues at different depths.
-
+This chapter pairs the failure modes you are most likely to hit in the first month with their causes and one- or two-step fixes. The symptom-cause-fix table is for fast lookup; the detailed entries that follow include reproduction notes and the navigation path to resolve them.
 
 ## Symptom-cause-fix table
 
@@ -45,7 +46,7 @@ Use this chapter in two passes. First, scan the symptom column for a phrase that
 
 1. Open the gateway's IAM console and confirm the credential's role.
 2. Open Existing API Sources in the marketplace and click Edit on the connection.
-3. Click **Test connection** to re-authenticate. The test passes whether the credential can read APIs or not, so this step alone does not diagnose the role problem — but it confirms the credential is at least valid.
+3. Click **Test connection** to re-authenticate. The test passes whether the credential can read APIs or not, so this step alone does not diagnose the role problem. But it confirms the credential is at least valid.
 4. Replace the credential with one that holds the gateway's reader role.
 5. Click Save, then Import APIs again.
 

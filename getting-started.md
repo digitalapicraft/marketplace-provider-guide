@@ -1,184 +1,153 @@
-Before connecting a gateway or importing an API, spend ten minutes orienting yourself in the marketplace. Sign in once, learn the four sidebar groups used in routine work, and recognise the common UI patterns — status badges, search and filter controls, action menus — that repeat on every list page. This chapter walks you through your first sign-in, the Portal Admin dashboard you land on, the four left-sidebar groups (**API MANAGEMENT**, **ADMINISTRATION**, **SETTINGS**, **ORGANISATION**), and the conventions you will see on every page from chapter 3 onwards.
+---
+icon: rocket
+---
 
-## Signing in
+# Getting started
 
-The marketplace runs as a hosted product. Sign in with the credentials your Org Admin issued — either a marketplace username and password, or your corporate SSO identity if your Organisation has SAML configured.
+Marketplace is the console you reach at `/admin/...` once you sign in. Ten minutes on this page covers everything you need before the first chapter: sign in, find the dashboard, learn the four sidebar groups, and recognise the UI patterns repeated on every list page.
 
-#### Sign in to the marketplace
+{% hint style="info" %}
+**Time to complete.** About ten minutes for the steps below, plus another ten if you want to explore the dashboard panels yourself before moving on.
+{% endhint %}
 
-Use this task on your first day with the product, or any time you need to switch from a consumer-side session to a provider-side session.
+{% hint style="success" %}
+**Already signed in?** Skip to [Your first day in four steps](#your-first-day-in-four-steps) below, or jump straight to [Connecting your first gateway](connecting-your-first-gateway.md) if your Org Admin has already given you sign-in credentials and you want to start working.
+{% endhint %}
+
+## Before you start
+
+You need three things before you can use this guide hands-on.
+
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>An invitation</strong></td><td>Your Org Admin has invited you to the marketplace and you have accepted the email. The invitation sets your initial password (or links your SSO identity) and the API Provider or Portal Admin role.</td></tr><tr><td><strong>Your marketplace URL</strong></td><td>The hostname your organisation reaches the console at. This guide writes it as <code>&lt;your-portal-domain&gt;</code> throughout; your production URL is whatever your Org Admin shared with you.</td></tr><tr><td><strong>A supported browser</strong></td><td>A current version of Chrome, Edge, Firefox, or Safari. The console is responsive but is designed for desktop use during day-to-day operation.</td></tr></tbody></table>
+
+## Your first day in four steps
+
+Follow these in order. Each step is short on its own; the goal is to land you on the admin dashboard with the sidebar layout already familiar.
+
+{% stepper %}
+{% step %}
+### Sign in to the marketplace
+
+Open `<your-portal-domain>` in a browser and click **Login** in the top-right corner. Enter your email and password, or click your organisation's SSO button. After sign-in, an API Provider lands on `/admin/dashboard`. See [Signing in to the marketplace](#signing-in-to-the-marketplace) below for the full walkthrough.
+{% endstep %}
+
+{% step %}
+### Recognise the Portal Admin dashboard
+
+The dashboard summarises every working surface in five tiles: **API Health Overview**, **Recent Governance Scans**, **Gateway Connections**, **Recent Subscriptions**, **Quick Actions**. Each tile is also a shortcut into the deeper screen that owns the data. See [Recognising the dashboard](#recognising-the-dashboard) below.
+{% endstep %}
+
+{% step %}
+### Find your way around the sidebar
+
+Every action in this guide starts from one of four left-sidebar groups: **API MANAGEMENT**, **ADMINISTRATION**, **SETTINGS**, **ORGANISATION**. The Sidebar map table below names every entry and the URL it lands on.
+{% endstep %}
+
+{% step %}
+### Recognise the common UI patterns
+
+Status badges (Draft, Published, Pending, Suspended), the search-and-filter bar at the top of every list page, the per-row action menu, and the breadcrumb trail at the top of every detail page repeat everywhere. Five minutes on these and the rest of the guide reads as variations on a known shape.
+{% endstep %}
+{% endstepper %}
+
+{% hint style="success" %}
+**Result.** You can sign in, recognise the dashboard, find any administrative surface from the sidebar, and read every list page without screen-hunting. You are ready to start [Connecting your first gateway](connecting-your-first-gateway.md).
+{% endhint %}
+
+## Signing in to the marketplace
+
+The marketplace lives at the URL your Org Admin shared (`<your-portal-domain>` in this guide). The unauthenticated landing is the public consumer storefront. Click **Login** in the top-right corner to reach the sign-in form.
 
 #### Before you start
 
-- **Confirm your account has the API Provider or Portal Admin role.** The provider-side sidebar groups described in this chapter are hidden for users who hold only the API Consumer role. If API MANAGEMENT is not visible in the sidebar after sign-in, ask your Org Admin to grant the API Provider role.
-- **Identify your Organisation's marketplace URL.** The reference URL throughout this guide is `https://<your-portal-domain>/`, but your production URL will differ. The path conventions (`/admin/dashboard`, `/admin/apim/connections`, and so on) are the same.
-- **Decide whether to use SSO or a local password.** If your Organisation has SAML configured, the sign-in form redirects you to your identity provider. Otherwise, sign in with the email and password set when you accepted your invitation.
+- **Confirm your account has the API Provider or Portal Admin role.** The provider-side sidebar groups are hidden for accounts with only the API Consumer role. If **API MANAGEMENT** is missing from the sidebar after sign-in, your role is wrong; ask your Org Admin to add the Provider role.
+- **Identify your marketplace URL.** The guide writes it as `<your-portal-domain>`; your production URL is different. The path conventions (`/admin/dashboard`, `/admin/apim/connections`) are the same.
+- **Decide whether to use SSO or a local password.** If your Organisation has SAML configured, the form redirects to your identity provider. Otherwise, sign in with the email and password set when you accepted your invitation.
 
 To sign in:
 
-1. Open your marketplace URL in a browser. The landing page is the public consumer-facing storefront.
-2. Click **Login** in the top-right corner of the page.
-3. Enter your email address and password, or click the SSO button if your Organisation uses SAML.
-4. If your Organisation has multi-factor authentication enabled, complete the second factor when prompted.
-5. After authentication, the marketplace lands at one of two surfaces:
-   - As an API Provider or Portal Admin, you land on the admin dashboard at `/admin/dashboard`.
-   - As an API Consumer, you land on the consumer dashboard. If this occurs despite holding the Provider role, navigate to `/admin/dashboard` directly in the address bar.
+1. Open `<your-portal-domain>` in a browser. The page is the public storefront.
+2. Click **Login** in the top-right corner.
+3. Enter your email and password, or click the SSO button.
+4. Complete multi-factor authentication if your Organisation has it enabled.
+5. After authentication, an API Provider or Portal Admin lands on `/admin/dashboard`. A consumer-only account lands on the consumer dashboard.
 
-> **Result:** You are signed in and viewing the admin dashboard described in the next task.
+> **Result:** You are signed in and viewing the admin dashboard.
 
-> **Tip:** Bookmark `/admin/dashboard` rather than the marketplace home page. As an API Provider, this is the most frequent destination.
+> **Tip:** Bookmark `/admin/dashboard` rather than the storefront. As a Provider, it is your most frequent destination.
 
-> **Note:** Sign-in sessions expire after a period of inactivity set by your Org Admin (typically 8 hours). When the session expires you are returned to the public landing page; sign in again to continue.
-
-Related tasks:
-
-- [Recognise the Portal Admin dashboard](#recognise-the-portal-admin-dashboard)
-- [Find your way around the sidebar](#find-your-way-around-the-sidebar)
+> **Note:** Sessions expire after the inactivity window your Org Admin sets (eight hours by default). When the session lapses you return to the public landing; sign in again to continue.
 
 ## Recognising the dashboard
 
-After sign-in, the page that loads at `/admin/dashboard` is the entry point. It summarises the health of your APIs, the governance scans that have run recently, the gateways you have connected, and the subscriptions consumers have requested. Every panel on the dashboard links to the deeper screen that owns the data.
+The page that loads at `/admin/dashboard` is the entry point for every working session. It summarises your APIs, your governance scans, your connected gateways, and your subscription requests. Every panel links to the deeper screen that owns the data.
 
-#### Recognise the Portal Admin dashboard
-
-Use this task to learn what each dashboard panel does, so you can identify at a glance whether something requires attention.
-
-To recognise the dashboard:
-
-1. After sign-in, look at the page heading. It reads API Marketplace Dashboard.
-2. Scan the five panels arranged below the heading. Each panel is a snapshot; click any heading to drill into the full screen.
-3. Note the four sidebar groups on the left — **API MANAGEMENT**, **ADMINISTRATION**, **SETTINGS**, **ORGANISATION**. Every task in this guide starts in one of these groups.
-4. Look at the top-right corner. The first chip shows your Organisation name (for example QAOrganisationOrganisation); the second chip shows your name and a dropdown for My account and Logout.
-
-![Figure 2-1. The Portal Admin dashboard at `/admin/dashboard`.](.gitbook/assets/screenshots/provider/admin-dashboard.png)
+![Figure 2-1. The Portal Admin dashboard at /admin/dashboard.](.gitbook/assets/screenshots/provider/admin-dashboard.png)
 
 The numbered callouts in Figure 2-1 are:
 
-1. **API Marketplace Dashboard** — The page heading. The dashboard is recognisable by this title.
-2. **API Health Overview** — A panel that summarises the count of APIs by status (Draft, Published) and any health flags. Click the heading to open Manage APIs.
-3. **Recent Governance Scans** — A panel listing the most recent governance scan runs with their average score. Click a row to open the detailed report; the panel is the shortcut into chapter 5 [Reviewing API governance](reviewing-api-governance.md#reviewing-api-governance).
-4. **Gateway Connections** — A panel listing every connected source with status. Click the heading to open Manage API Sources — the entry point for chapter 3 [Connecting your first gateway](connecting-your-first-gateway.md#connecting-your-first-gateway).
-5. **Recent Subscriptions** — A panel showing the latest subscription requests, with Pending rows highlighted. Click any Pending row to jump to the approval flow described in chapter 8 [Onboarding your first consumer](onboarding-your-first-consumer.md#onboarding-your-first-consumer).
-6. **Quick Actions** — A panel with shortcut buttons for the most common create flows: Create API, Create API Product, Create Article.
+1. **API Marketplace Dashboard.** The page heading. The dashboard is recognisable by this title.
+2. **API Health Overview.** A tile that summarises APIs by status (Draft, Published) and surfaces any health flags. Click the heading to open Manage APIs.
+3. **Recent Governance Scans.** A tile listing the most recent scan runs with their average score. Click a row to open the report; click the heading to open the Reviewing API governance chapter's entry surface.
+4. **Gateway Connections.** A tile listing every connected source with status. Click the heading to open Manage API Sources, the entry point for the Connecting your first gateway chapter.
+5. **Recent Subscriptions.** A tile showing the latest subscription requests, with Pending rows highlighted. Click any Pending row to jump straight into the approval flow.
+6. **Quick Actions.** Shortcut buttons for the most common create flows: Create API, Create API Product, Create Article.
 
-> **Result:** You can read each panel at a glance and click straight through to the underlying screen.
+> **Result:** You can read each tile at a glance and click through to the underlying screen.
 
-> **Tip:** If a panel appears empty during onboarding, this is expected. The dashboard fills in as you connect a gateway, import APIs, run scans, and onboard consumers across the chapters that follow.
+> **Tip:** Empty tiles on day one are expected. The dashboard fills in as you connect a gateway, import APIs, run scans, and onboard consumers.
 
-> **Note:** The dashboard refreshes on page reload; it does not push live updates. If you have made a change elsewhere and want to see it on the dashboard, reload.
+> **Note:** The dashboard refreshes on page reload; it does not push live updates. After a change elsewhere, reload to see it on the dashboard.
 
-Related tasks:
+## Sidebar map
 
-- [Find your way around the sidebar](#find-your-way-around-the-sidebar)
-- [Recognise common UI patterns](#recognise-common-ui-patterns)
+Every action in this guide starts in one of four left-sidebar groups. The table names every entry, the page heading it loads, and the URL it lands on, so you can reach any surface by whichever identifier you have.
 
-## Finding your way around
+| Sidebar group | Sub-entry | Page heading | URL |
+|---|---|---|---|
+| API MANAGEMENT | Manage APIs | Manage APIs | `/admin/manage-apis` |
+| API MANAGEMENT | Manage API Sources | Manage API Sources | `/admin/api-sources` |
+| API MANAGEMENT | Manage API Products | Manage API Products | `/admin/manage-api-products` |
+| API MANAGEMENT | Governance Reports | Governance Reports | `/admin/api-gov-reports` |
+| API MANAGEMENT | API GPT | API GPT | `/admin/api-gpt` |
+| API MANAGEMENT | MCP Servers | MCP Servers | `/admin/portal/mcp-servers` |
+| ADMINISTRATION | Manage Subscriptions | Manage Subscriptions | `/admin/manage-subscriptions` |
+| ADMINISTRATION | Manage Consumers | Manage Consumers | `/admin/manage-consumers` |
+| ADMINISTRATION | Manage Apps | Manage Apps | `/admin/manage-apps` |
+| ADMINISTRATION | Provider Analytics | Provider Analytics | `/admin/provider-analytics` |
+| SETTINGS | Webhooks | Services Webhooks | `/admin/config/services/webhook` |
+| SETTINGS | Email Templates | Email Templates | `/admin/config/system/symfony-mailer-lite-transport` |
+| SETTINGS | Linting Rules | API Linting | `/admin/config/apim/api-linting` |
+| SETTINGS | Search Configuration | Search Path | `/admin/config/search-path` |
+| SETTINGS | Domains | Domain Registration | `/admin/config/system/domain` |
+| SETTINGS | Branding | Appearance | `/admin/appearance` |
+| ORGANISATION | Members | Members | `/admin/organisations/<id>/members` |
+| ORGANISATION | Roles | Roles | `/admin/organisations/<id>/roles` |
+| ORGANISATION | Teams | Teams | `/admin/organisations/<id>/teams` |
+| ORGANISATION | Settings | Organisation Settings | `/admin/config/marketplace/organisation` |
 
-Every action in this guide starts from one of the four left-sidebar groups. Learn what each group holds and screen-hunting is no longer required.
+{% hint style="info" %}
+**Three identifiers per surface.** Each row in the table shows the sidebar label, the page heading, and the URL for the same surface. Use whichever you have at hand: a colleague's "go to Manage APIs", a screenshot showing the page heading, or a deep-link URL in a runbook.
+{% endhint %}
 
-#### Find your way around the sidebar
+## Recognising the common UI patterns
 
-Use this task during onboarding to map every screen you will touch in the rest of the guide to its sidebar group.
+Every list page in the marketplace uses the same controls. Learn them once and every chapter reads faster.
 
-To find your way around the sidebar:
+- **Status badges.** Coloured pill labels on every row: **Draft** (grey) and **Published** (green) for catalog content, **Pending** (amber), **Active** (green), **Suspended** (grey), and **Revoked** (red) for subscriptions, **Healthy** (green) and **Error** (red) for gateway connections.
+- **Search and filter bar.** A free-text **Search** input plus one or two dropdown filters anchored at the top of every list. The search is title-substring; the dropdowns scope by status, source, visibility, or owner.
+- **Sortable columns.** Hover any column header. A sortable header shows an arrow; click to toggle ascending or descending. The default sort is usually **Last updated**, descending.
+- **Row action menu.** A three-dot button at the right edge of every row. Opens a menu with the per-row actions (Edit, Delete, Re-run, Duplicate, Suspend, depending on the surface).
+- **Bulk-action bar.** A header checkbox selects every row; the bar that appears offers the bulk operations the surface supports.
+- **Breadcrumb trail.** Every detail page shows a breadcrumb (e.g. **Manage APIs > Customer Orders API**) at the top. The breadcrumb returns you to the parent list with a click.
+- **Right-aligned primary action.** Every list page's primary create action (**+ Create API**, **+ Add Connection**, **+ Invite Member**) sits at the top-right of the page.
 
-1. Look at the left edge of the page. The sidebar shows four group headings, each with a list of links beneath it. The headings are **API MANAGEMENT**, **ADMINISTRATION**, **SETTINGS**, and **ORGANISATION**.
-2. Hover over a group to reveal its links if they are collapsed. Click a group heading to expand or collapse it.
-3. Match each group to the chapters it owns:
-   - API MANAGEMENT holds Manage API Sources, Manage APIs, Manage API Products, API Governance Report. This group covers chapters 3 through 7.
-   - ADMINISTRATION holds Manage Apps, Subscriptions, Product Subscriptions, Provider Analytics, MCP Servers. This group covers chapters 8 through 10.
-   - SETTINGS holds Site Settings, Auth & Branding, API Linting, Webhooks, System Notifications, SAML IdP, SMTP. This group is mixed scope: some links are Provider-accessible, some require Org Admin.
-   - ORGANISATION holds Organisation, Members, Teams, Roles. This group covers chapter 11.
-4. Locate the **Collapse sidebar** control at the bottom of the sidebar. Click it when more horizontal space is required; the sidebar collapses to icons-only and remembers the selection.
+{% hint style="success" %}
+**Tip.** When a surface feels unfamiliar, locate the search bar and the row action menu first. Every list page in the marketplace follows this shape; once you find these two, you can predict the rest.
+{% endhint %}
 
-> **Result:** You know where every chapter's tasks live in the sidebar.
+## What to do next
 
-> **Note:** A link missing from the sidebar indicates the current role does not grant access to it. Consult your Org Admin to identify which role grants the link before assuming a feature is missing from the product.
+Most providers walk the chapters in order on day one, then return to them as task-oriented reference. Pick a starting point:
 
-
-Related tasks:
-
-- [Recognise common UI patterns](#recognise-common-ui-patterns)
-- [Connecting your first gateway](connecting-your-first-gateway.md#connecting-your-first-gateway)
-
-## Recognising the conventions
-
-Every list page in the marketplace — APIs, API Products, subscriptions, members — uses the same controls. Learn them once and every screen is familiar.
-
-#### Recognise common UI patterns
-
-Use this task before chapter 3 so the screens that follow are familiar.
-
-To recognise the conventions:
-
-1. **Status badges.** Look for coloured pill labels near a record's title. APIs and API Products use Draft (grey), Published (green), and Archived (amber). Subscriptions use Pending (amber), Active (green), Suspended (grey), Revoked (red).
-2. **Search and filter.** Every list page has a search field at the top and a row of filter dropdowns below it. The search matches title and description; the filters narrow by status, gateway, owner, or date range. The filter set persists per page until cleared or until sign-out.
-3. **Action menus.** Each row in a list ends with an action column. The action column either lists the actions inline (Edit, Delete) or shows a vertical-dots menu that reveals them on click. Destructive actions (Delete, Revoke) always prompt for confirmation before they run.
-4. **Form layout.** Create and edit forms place required fields first, optional fields below, and a fixed footer with Save and (where relevant) Test connection buttons. Forms do not autosave — changes apply only when Save is clicked.
-5. **Breadcrumbs.** The breadcrumb above each page title shows the trail from Home to the current screen. Click any breadcrumb segment to navigate up.
-6. **Notification toasts.** A green toast in the top-right corner confirms a successful save; a red toast names the failing field. Toasts dismiss automatically after a few seconds.
-
-> **Result:** You can navigate any list page, run any create or edit flow, and read the result without re-learning the controls each time.
-
-> **Tip:** If a form's Save button is greyed out, scroll up to locate a required field with a red border. The field name and its error message appear above the form on submit.
-
-> **Note:** A few specialist surfaces (the Governance Report, the Provider Analytics dashboard, the MCP Servers page) layer charts and tables on top of these conventions. The same search, filter, and action patterns still apply to the underlying tables.
-
-Related tasks:
-
-- [Connecting your first gateway](connecting-your-first-gateway.md#connecting-your-first-gateway)
-- [Importing your first API](importing-your-first-api.md#importing-your-first-api)
-
-## Switching context and finding things fast
-
-Two skills repay the time spent learning them: switching organisations when you are a member of more than one, and jumping straight to a screen by name without navigating the sidebar.
-
-#### Switch between organisations
-
-Use this task when you are a member of more than one Organisation in the marketplace and need to change which one you are acting in.
-
-#### Before you start
-
-- **Confirm membership in more than one Organisation.** If your name chip in the top-right corner shows only one Organisation name, there is nothing to switch between. Membership is granted by an Org Admin in each Organisation; request access from them if required.
-- **Recognise that the active Organisation scopes everything.** APIs in Manage APIs, subscriptions in Subscriptions, members in Organisation > Members — all are filtered to your active Organisation. Switching Organisations swaps the entire dataset.
-
-To switch organisations:
-
-1. Click the Organisation chip in the top-right corner of any page (the chip immediately to the left of your name chip). It typically reads something like QAOrganisationOrganisation.
-2. In the dropdown, look at the list under Switch organisation. Each Organisation you belong to appears once with a checkmark next to the active one.
-3. Click the Organisation to switch to. The page reloads and the chip updates to show the new active Organisation.
-4. Confirm the switch by glancing at the dashboard tiles. The numbers under API Health Overview and Recent Subscriptions should reflect the new Organisation's data.
-
-> **Result:** Every screen visited subsequently is scoped to the newly-active Organisation, until another switch or sign-out.
-
-> **Note:** Sessions are scoped to a single Organisation. If you open a second browser tab and switch the Organisation in that tab, the original tab's Organisation also changes on next reload. To work in two Organisations at once, use two separate browser profiles.
-
-> **Tip:** If you spend most of your day in one Organisation but occasionally need to act in a second one, set the more frequently-used Organisation as your default in My account > Preferences. The marketplace lands there at every sign-in regardless of which Organisation was switched to last.
-
-Related tasks:
-
-- [Use search to jump to any screen](#use-search-to-jump-to-any-screen)
-- [Managing your team](managing-your-team.md#managing-your-team)
-
-#### Use search to jump to any screen
-
-Use this task when you know the name of a screen, an API, an API Product, or a member but do not want to navigate through the sidebar.
-
-To use search:
-
-1. Press the `/` (forward-slash) key from any page. The cursor jumps to the global search field at the top of the page.
-2. Start typing. The results list opens beneath the field as you type, grouped by type: Pages, APIs, API Products, Apps, Members, Notifications.
-3. Use the up and down arrow keys to highlight a result.
-4. Press **Enter** to navigate to the highlighted result, or click any result with the mouse.
-5. Press **Escape** to close the results list without navigating.
-
-> **Result:** You arrive on the searched screen without clicking through the sidebar.
-
-> **Tip:** Search is keyboard-first. Pressing `/` from anywhere is faster than reaching for the sidebar, and the up/down/Enter combination avoids the mouse.
-
-> **Note:** Search results respect your role and Organisation scope. If an expected result is not visible, you may lack access to it, or it may belong to a different Organisation than the one you are currently in.
-
-Related tasks:
-
-- [Find your way around the sidebar](#find-your-way-around-the-sidebar)
-- [Recognise common UI patterns](#recognise-common-ui-patterns)
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Connect your first gateway</strong></td><td>Register a Gateway Connection for any supported gateway product, test the credentials, and prepare the catalog for import.</td><td><a href="connecting-your-first-gateway.md">connecting-your-first-gateway.md</a></td></tr><tr><td><strong>Import your first API</strong></td><td>Trigger an automatic import once the connection is in place, or walk the Create APIs wizard to create one by hand.</td><td><a href="importing-your-first-api.md">importing-your-first-api.md</a></td></tr><tr><td><strong>Review API governance</strong></td><td>Open the Governance Report, read the score breakdown, and drill into the violations that matter.</td><td><a href="reviewing-api-governance.md">reviewing-api-governance.md</a></td></tr><tr><td><strong>Configure access and branding</strong></td><td>If your day-zero job is identity and branding rather than the API workflow, jump here for SAML, custom domains, and the storefront theme.</td><td><a href="configuring-access-and-storefront-branding.md">configuring-access-and-storefront-branding.md</a></td></tr></tbody></table>
