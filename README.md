@@ -4,7 +4,37 @@ icon: book-open
 
 # Marketplace
 
-Marketplace is an enterprise API marketplace and operations console. The storefront publishes your APIs to a branded developer catalog. The control plane connects to every major API gateway. The governance and operations console scores every spec, routes every subscription, watches every call, and notifies every operator on every event.
+**Your APIs are products. Marketplace is where you sell them.**
+
+Every API your organisation builds carries business value: a payments call, a customer-lookup, a logistics feed. On their own, those endpoints sit behind a gateway where only the team that built them knows they exist. Marketplace turns them into a branded, discoverable catalog that customers, partners, and internal teams can find, trial, subscribe to, and build on. The API stops being plumbing and becomes a product with an audience.
+
+{% hint style="success" %}
+**Why this matters.** Companies in the API economy do not stop at exposing APIs. They package them as products and put them in front of the people who pay for them. A marketplace is the storefront, the contract desk, and the analytics room for that business, all in one console.
+{% endhint %}
+
+## Why an API marketplace
+
+A marketplace opens three growth levers that a raw gateway cannot. Each one turns existing engineering work into reachable revenue.
+
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>🚀 Sell more in markets you already serve</strong></td><td>Publish your APIs as subscribable products to the customers and partners you have today. A self-service catalog with live docs and instant sign-up shortens the path from "interested" to "integrated" from weeks to minutes.</td></tr><tr><td><strong>🌐 Reach new markets through partners</strong></td><td>Onboard third-party providers and let them publish alongside you. Their APIs widen your catalog, their audiences become yours, and the marketplace becomes an ecosystem rather than a single vendor's price list.</td></tr><tr><td><strong>💡 Build faster and cheaper by composing</strong></td><td>Consume partner and third-party APIs from the same catalog your own teams use. Integrate proven capabilities instead of rebuilding them, and cut both cost and time to market.</td></tr></tbody></table>
+
+## Who it serves
+
+A marketplace is a shared hub, not a one-way feed. It gives every audience a custom-branded experience and a reason to come back.
+
+- **Providers** (your product teams and partner developers) publish APIs, enrich them with documentation and branding, set who can see them, and watch how they are used.
+- **Consumers** (external customers and internal teams) discover APIs, read interactive docs, request access, manage their credentials, and build with confidence.
+- **The business** gets a governed channel where access is controlled, usage is measured, and subscriptions become repeatable revenue streams.
+
+This collaboration across your organisation, your customers, and your partners is what compounds into growth. A gateway moves traffic; a marketplace builds an ecosystem around it.
+
+{% hint style="info" %}
+**One API is rarely the product.** Customers buy outcomes, not endpoints. Marketplace lets you bundle related APIs into Products and Plans so a subscriber gets a complete capability, with the commercial terms attached, instead of a list of disconnected URLs.
+{% endhint %}
+
+## What Marketplace is
+
+Marketplace is the enterprise console that delivers all of the above. The storefront publishes your APIs to a branded developer catalog. The control plane connects to every major API gateway, so one console covers APIs wherever they run. The governance and operations layer scores every spec, routes every subscription through approval, measures every call, and notifies every operator on every event.
 
 {% hint style="info" %}
 **Who this guide is for.** You are the API Provider or Portal Admin who runs the marketplace day-to-day: you connect the organisation's gateways, import APIs into the catalog, complete the consumer-facing metadata, approve subscription requests, monitor usage, and operate the administrative surfaces. This guide walks every surface you reach from sign-in onwards.
