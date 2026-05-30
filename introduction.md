@@ -42,6 +42,30 @@ This collaboration across your organisation, your customers, and your partners i
 **One API is rarely the product.** Customers buy outcomes, not endpoints. Marketplace lets you bundle related APIs into Products and Plans so a subscriber gets a complete capability, with the commercial terms attached, instead of a list of disconnected URLs.
 {% endhint %}
 
+## How the marketplace creates value
+
+The marketplace sits between the teams that build APIs and the audiences that consume them. Your product teams and partners publish into one branded catalog. Governance and approval keep quality and access under control. Plans and metering turn access into subscriptions. Consumers discover, subscribe, and build, and the usage they generate feeds the analytics that tell you where to invest next. That cycle is the engine of growth.
+
+![Figure 1-1. How the marketplace creates value: supply-side teams publish into a governed catalog, demand-side consumers subscribe through Plans and metering, and the resulting usage and revenue fund the next wave of APIs.](.gitbook/assets/screenshots/provider/value-flow.png)
+
+## What you can do, and the business value
+
+Each capability in the marketplace maps to a business outcome, not only a technical one.
+
+| Capability | What it does | Business value |
+| --- | --- | --- |
+| Branded catalog and discovery | Consumers browse, search, and filter every published API and Product in a storefront styled to your brand. | Easy discovery turns interest into adoption and keeps customers returning to your own channel. |
+| Multi-gateway connections | One console reads APIs and Products from every major gateway, wherever they run. | Reuse the gateways you already operate, with no migration or re-platforming cost. |
+| API governance scoring | Every specification is scored against linting rulesets, with severity-ranked findings and remediation guidance. | Consistent, high-quality APIs reach consumers, protecting your brand and lowering support load. |
+| Products and Plans | Related APIs bundle into Products carrying the Plan, quota, and rate-limit terms consumers subscribe to. | Customers buy a complete capability with clear commercial terms, not a list of disconnected endpoints. |
+| Subscription approval workflow | Access requests route through a defined approve or reject flow before credentials are issued. | Product owners control who consumes what, opening governed, subscription-based revenue streams. |
+| Role and persona-based access | Built-in and custom roles, teams, and visibility scopes decide what each audience sees. | The right people see the right products, and access itself becomes a commercial boundary. |
+| Provider analytics | Time-series traffic per API, per Organisation, and per consumer, filterable and exportable. | Usage data shows what is working, who is active, and where to invest next. |
+| Application and credential management | Every consumer application, its issued keys, and its subscriptions are visible and manageable in one place. | Faster, safer onboarding and credential rotation builds consumer confidence. |
+| AI-agent access | A curated slice of APIs is exposed to AI agents and a storefront chat assistant. | Your APIs reach the fast-growing channel of AI-driven consumption without exposing everything. |
+| Notifications and webhooks | Organisation-wide announcements plus outbound webhook deliveries on every key event. | Subscribers stay informed and downstream systems automate on marketplace activity. |
+| Branding, theming, and custom domains | Per-Organisation logo, theme, accent colour, and additional registered domains. | A familiar, on-brand experience gives customers confidence and encourages repeat use. |
+
 ## What Marketplace is
 
 Marketplace is the enterprise console that delivers all of the above. The storefront publishes your APIs to a branded developer catalog. The control plane connects to every major API gateway, so one console covers APIs wherever they run. The governance and operations layer scores every spec, routes every subscription through approval, measures every call, and notifies every operator on every event.
@@ -78,7 +102,7 @@ The provider experience groups every surface under one of three working areas. E
 
 ## Architecture at a glance
 
-![Figure 1-1. The Marketplace architecture: consumer-side surfaces and AI agents, the marketplace storefront and provider console, the connected API gateways and their backend services. Solid arrows show consumer traffic; dotted arrows show the synchronisation flow that populates the marketplace catalog.](.gitbook/assets/screenshots/provider/architecture.png)
+![Figure 1-2. The Marketplace architecture: consumer-side surfaces and AI agents, the marketplace storefront and provider console, the connected API gateways and their backend services. Solid arrows show consumer traffic; dotted arrows show the synchronisation flow that populates the marketplace catalog.](.gitbook/assets/screenshots/provider/architecture.png)
 
 The marketplace sits between the consumer-facing storefront and the runtime gateways. Provider work happens in the console at `/admin/...`. Consumer work happens in the public catalog at the root URL. AI agents reach a curated slice of APIs through the MCP server. Every gateway, every spec source, every notification target is configured once and surfaces in the same console.
 
