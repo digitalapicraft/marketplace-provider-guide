@@ -233,6 +233,8 @@ To invite a colleague:
 6. Optional. Add a personal note in the **Welcome message** field. The note appears in the invitation email above the standard sign-in link.
 7. Click **Send invitation**.
 
+![Figure 11-5. The Invite member form with Email, Role, Team, and Welcome message fields.](.gitbook/assets/screenshots/provider/admin-organisations-members-invite.png)
+
 The Invite member form fields are:
 
 1. **Email**. Required. The work email address the invitation is mailed to. Must be a valid RFC 5322 address. Cannot match an existing member of this Organisation.
@@ -271,6 +273,8 @@ To accept an invitation:
 3. If you already have a marketplace account, click **Sign in instead** and authenticate. The marketplace links your existing account to the new Organisation.
 4. If you do not have an account, fill the registration form: name, password, and any required profile fields. Submit.
 5. The marketplace lands you on the Organisation Overview page for the inviting Organisation.
+
+The landing page presents two paths: **Sign in instead** for a colleague who already has a marketplace account, and a registration form for a colleague creating an account for the first time.
 
 {% hint style="success" %}
 **Result:** The invitation token is consumed, the membership row flips from Pending to Active, and the inviter sees the change in **Organisation Members** within a minute.
@@ -353,7 +357,7 @@ To change a member's role:
 5. Optional. Add or remove team memberships in the **Teams** multi-select.
 6. Click **Save**.
 
-The Member edit form fields are:
+The member edit form carries the following fields:
 
 1. **Name**. Read-only. Surfaces the member's name for confirmation.
 2. **Email**. Read-only. The unique identifier across Organisations.
@@ -507,9 +511,9 @@ To create a team:
 6. Click **Save**.
 7. The page navigates to the new team's detail page, where you add members.
 
-![Figure 11-5. The Organisation Teams list.](.gitbook/assets/screenshots/provider/admin-organisations-teams.png)
+![Figure 11-6. The Organisation Teams list.](.gitbook/assets/screenshots/provider/admin-organisations-teams.png)
 
-The numbered callouts in Figure 11-5 are:
+The numbered callouts in Figure 11-6 are:
 
 1. **Organisation Teams**. The page heading. Each row below is one team in the Organisation.
 2. **Add team**. Opens the create-team form covered in steps 3 to 6 above.
@@ -640,7 +644,7 @@ To open the Roles list:
 2. The page loads with the title **Custom Roles**.
 3. Scan the table to see every role available in your Organisation, built-in and custom.
 
-![Figure 11-6. The Custom Roles list with the four built-in roles.](.gitbook/assets/screenshots/provider/admin-organisations-4-roles.png)
+![Figure 11-7. The Custom Roles list with the four built-in roles.](.gitbook/assets/screenshots/provider/admin-organisations-4-roles.png)
 
 The four built-in roles are:
 
@@ -649,7 +653,7 @@ The four built-in roles are:
 3. **API Consumer**. Browses the catalog, subscribes to plans, manages personal Apps and API keys, views their own usage analytics. No admin-side access. Scoped to one Organisation, but a consumer can hold memberships in many.
 4. **Portal Admin**. Cross-Organisation administrator. Operates across every Organisation on the platform, configures marketplace-wide policies, manages the Organisation list, runs platform-wide system notifications. Reserved for the platform team running the marketplace itself. Out of scope for most teams.
 
-The numbered callouts in Figure 11-6 are:
+The numbered callouts in Figure 11-7 are:
 
 1. **Custom Roles**. The page heading.
 2. **Role name**. The display name. Click to open the role's permission editor.
@@ -683,6 +687,8 @@ To create a custom role:
 5. Tick the permission checkboxes the role needs. The list is grouped by surface: APIs, Products, Subscriptions, Members, Teams, Settings.
 6. Click **Save**.
 7. Assign the new role to one or more members. See [Change a member's role](#change-a-members-role).
+
+![Figure 11-8. The Add role form showing Name, Description, and the grouped permission grid.](.gitbook/assets/screenshots/provider/admin-organisations-roles-add.png)
 
 The Add role form fields are:
 
@@ -768,9 +774,9 @@ To add an Organisation:
 8. Click **Save**.
 9. Open the new Organisation and click **Invite member** to invite the first Org Admin. See [Invite a colleague to your organisation](#invite-a-colleague-to-your-organisation).
 
-![Figure 11-7. The Create Organisation form.](.gitbook/assets/screenshots/provider/admin-organisations-add.png)
+![Figure 11-9. The Create Organisation form.](.gitbook/assets/screenshots/provider/admin-organisations-add.png)
 
-The numbered callouts in Figure 11-7 are:
+The numbered callouts in Figure 11-9 are:
 
 1. **Organisation name**. The tenant's display name. Appears in the sidebar switcher, on every API and Product the tenant owns, and on the storefront. Required.
 2. **Description**. A one-line note for your own records: what business the tenant is in, who the owner contact is, what stage the onboarding is at. Visible only to admins.

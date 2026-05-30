@@ -23,6 +23,19 @@ The Configuration index in Figure 13-0 organises every operational surface under
 
 Your storefront ships with a small set of standing pages: About, Help, Privacy, Terms, and a homepage. These are the pages a consumer sees before signing in, and the pages that hold any policy or onboarding copy you publish. The content surfaces sit under **Content** in the left sidebar.
 
+The **Content** overview is the single list of every content item in the portal, across Pages, CMS items, and Media. Open it from **Administration** > **CMS** when you want to find an item by title regardless of which type it belongs to.
+
+![Figure 13-19. The Content overview listing every content item with Title, Content type, Author, Status, and Updated columns.](.gitbook/assets/screenshots/provider/admin-content.png)
+
+The numbered callouts in Figure 13-19 are:
+
+1. **Content** heading. The page heading. The **Overview** and **Scheduled content** tabs below switch between the full list and the queue of future state changes.
+2. **Title / Type / Published status** filters. Combine them to find, for example, every Documentation item that is still in Draft.
+3. **Content type** column. Tells you whether a row is a Page, a Documentation item, a Guide, or another type.
+4. **Status** column. Whether the item is Published or unpublished.
+5. **Updated** column. Sortable column showing when the item was last saved. Sort descending to see today's edits first.
+6. **Operations** menu. Per-row menu where you open the item for **Edit** or view its revisions.
+
 #### Edit the public storefront pages
 
 Edit a storefront page when copy is out of date, when legal asks for a Privacy or Terms revision, or when you want to revise the homepage hero before a launch.
@@ -199,12 +212,51 @@ To add a new term to a vocabulary:
 5. Enter a short **Description**. The description appears as hover text on some surfaces.
 6. Click **Save**.
 
+![Figure 13-17. The Taxonomy management page listing every vocabulary with its description and a List terms action per row.](.gitbook/assets/screenshots/provider/admin-structure-taxonomy.png)
+
+The numbered callouts in Figure 13-17 are:
+
+1. **Taxonomy** heading. The page heading. Each row below is one vocabulary the marketplace ships with.
+2. **Vocabulary name** column. The name of the vocabulary (for example **API Filters** or **Blog category**). This is the label your team works with, not the consumer-facing term.
+3. **Description** column. A short description of what the vocabulary labels and where its terms appear.
+4. **Operations** menu. Per-row menu. **List terms** opens the term list for that vocabulary; the dropdown adds a term or edits the vocabulary itself.
+
 {% hint style="success" %}
 **Result:** The new term is available immediately. When a Provider tags an API or Product with the term, the consumer-facing filter list picks it up on the next refresh.
 {% endhint %}
 
 {% hint style="success" %}
 **Tip:** Keep vocabularies tight. A discovery filter list with 40 categories is harder to use than a list with 8. Audit each vocabulary every quarter and fold rarely-used terms into broader ones.
+{% endhint %}
+
+#### Manage navigation menus
+
+The marketplace builds its sidebars, footers, and section navigation from named menus. Edit a menu when you want to add a link to a new page, reorder items, or hide a link without redeploying code.
+
+To edit a menu:
+
+1. From the left sidebar, expand **Structure** and click **Menus**.
+2. The **Menus** list shows every menu the portal ships with: the **Main navigation**, the **Footer** and **Legal links**, the **Org Admin Menu** and **Portal Admin Menu** sidebars, and the **Social links** row.
+3. Click **Edit menu** on the row you want to change.
+4. On the menu editor, drag rows to reorder them, toggle a row's **Enabled** checkbox to show or hide it, or click **Add link** to add a new entry.
+5. Click **Save**.
+
+![Figure 13-18. The Menus management page listing every navigation menu with its description and an Edit menu action per row.](.gitbook/assets/screenshots/provider/admin-structure-menu.png)
+
+The numbered callouts in Figure 13-18 are:
+
+1. **Menus** heading. The page heading. Each row is one navigation menu.
+2. **Title** column. The menu name (for example **Main navigation**, **Portal Admin Menu**, or **Footer**).
+3. **Description** column. A short note on where the menu renders and what it controls.
+4. **Operations** menu. Per-row menu. **Edit menu** opens the link editor where you add, reorder, and disable items.
+5. **+ Add menu** button. Top-right action that creates a new menu when you need navigation the shipped set does not cover.
+
+{% hint style="success" %}
+**Result:** The reordered or toggled menu renders its new shape on the next page load. No deployment is needed.
+{% endhint %}
+
+{% hint style="warning" %}
+**Caution:** Disabling a link in the **Portal Admin Menu** or **Org Admin Menu** hides the surface from everyone who relies on that sidebar, not just yourself. Confirm no one needs the link before you hide it.
 {% endhint %}
 
 ## Posting system-wide announcements
@@ -424,6 +476,17 @@ The numbered callouts in Figure 13-7 are:
 
 </details>
 
+![Figure 13-20. The Add webhook form with the Label, Type, Content Type, Secret, and Token fields above the Outgoing Webhook Settings section.](.gitbook/assets/screenshots/provider/admin-config-services-webhook-add.png)
+
+The numbered callouts in Figure 13-20 are:
+
+1. **Label** field. A recognisable name for the webhook so you can find it in the list later (for example "Slack #api-ops").
+2. **Type** field. Set to **Outgoing**. Outgoing webhooks POST new events to the configured URL.
+3. **Content Type** field. The body format the marketplace sends. Leave it on `application/json` unless the receiver needs something else.
+4. **Secret** field. The shared string the receiver uses to verify the inbound signature. Treat it like a password and do not reuse it across webhooks.
+5. **Token** field. An optional token the receiver checks on the incoming hook. Use it as a second factor alongside the signature.
+6. **Outgoing Webhook Settings** section. The collapsible panel where you enter the target URL and pick the events to subscribe to.
+
 {% hint style="success" %}
 **Result:** From this point on, every event you ticked fires a POST to the receiver URL with a signed JSON body.
 {% endhint %}
@@ -553,6 +616,46 @@ To configure the transport:
 **Tip:** Keep DSN credentials in your secrets manager and paste them into the DSN field only at configuration time. The DSN field stores the credentials, so anyone with admin access can read them back from the form.
 {% endhint %}
 
+#### Set the SMTP server credentials
+
+The SMTP settings page holds the raw server host, port, and encryption that the transport dials out through. Configure it when your mail provider gives you SMTP credentials rather than a single DSN string, or when you want to set a backup server and TLS behaviour explicitly.
+
+#### Before you start
+
+- **Have the SMTP host and port.** The default port is 25. If your network blocks it, port 587 or 465 usually works. Most managed providers document the port they expect.
+- **Know the encryption your provider requires.** Production providers require TLS or SSL. Pick the matching option rather than leaving it on the default.
+- **Have a backup server if your provider offers one.** The marketplace falls back to the backup server when the primary cannot be reached.
+
+To set the SMTP credentials:
+
+1. From the left sidebar, expand **Settings** and click **SMTP Settings**.
+2. Enter the **SMTP server** host (for example `smtp.gmail.com`).
+3. Enter a **SMTP backup server** if your provider offers one. This is optional. The marketplace tries it only when the primary is unreachable.
+4. Enter the **SMTP port**. The default is 25. Use 587 or 465 if 25 is blocked.
+5. Choose the encryption under **Use encrypted protocol** (for example **Use TLS**) to match what your provider requires.
+6. Set **Enable TLS encryption automatically** to **On** so the marketplace negotiates TLS where the server supports it.
+7. Click **Save configuration** in the top-right.
+8. Trigger a low-impact email and confirm it arrives.
+
+![Figure 13-21. The SMTP Authentication Support page with the server host, backup server, port, and encryption controls.](.gitbook/assets/screenshots/provider/admin-config-system-smtp.png)
+
+The numbered callouts in Figure 13-21 are:
+
+1. **SMTP server** field. The host of your outgoing SMTP server (for example `smtp.gmail.com`).
+2. **SMTP backup server** field. Optional secondary host the marketplace tries when the primary cannot be reached.
+3. **SMTP port** field. The port the marketplace connects on. Defaults to 25. Use 587 or 465 if 25 is blocked.
+4. **Use encrypted protocol** selector. The transport encryption (for example **Use TLS**) for servers that require SSL or TLS.
+5. **Enable TLS encryption automatically** toggle. Set to **On** to negotiate TLS automatically where the server supports it.
+6. **Save configuration** button. Persists the SMTP settings. New outbound emails dial out through these values immediately.
+
+{% hint style="success" %}
+**Result:** Outbound email now connects through the SMTP host, port, and encryption you set.
+{% endhint %}
+
+{% hint style="warning" %}
+**Caution:** A wrong port or encryption mode fails silently in the UI. Always send a test email after saving and confirm it lands.
+{% endhint %}
+
 #### Edit a system email template
 
 Edit a system email template when the default copy does not match your tone, when legal asks for specific footer copy, when you want to change which fields are shown, or when you want to translate templates for a non-English audience.
@@ -662,14 +765,16 @@ To open App Builder:
 2. The landing surface loads. The left rail summarises the **API Catalog** the builder is wired to and lists **TEMPLATES** and **Workspaces** you can open or extend.
 3. Pick a template tile, choose **Workspaces** > **+ New** to start a blank workspace, or type a goal into the prompt box on the right and let the assistant draft a starting point.
 
-The App Builder landing page is organised into the following surfaces:
+![Figure 13-11. The App Builder landing page with the API Catalog summary on the left, template tiles, and the assistant prompt on the right.](.gitbook/assets/screenshots/provider/app-builder.png)
 
-1. **API Catalog**. A summary of the APIs and endpoints the builder can call. Click **Sync** to refresh the inventory after you publish a new API.
-2. **TEMPLATES**. Pre-built starter Apps (for example, **Customer Support System**) you clone as the basis for a new build. Templates package an API selection, a UI layout, and routing wiring.
-3. **Shared Workspaces**. Workspaces shared with you or your team. Open one to keep working on a build that someone else started.
+The numbered callouts in Figure 13-11 are:
+
+1. **API Catalog** panel. A summary of the APIs and endpoints the builder can call, with live counts. Click **Sync** to refresh the inventory after you publish a new API.
+2. **TEMPLATES** list. Pre-built starter Apps (for example, **Customer Support System**) you clone as the basis for a new build. Templates package an API selection, a UI layout, and routing wiring.
+3. **Shared Workspaces** list. Workspaces shared with you or your team. Open one to keep working on a build that someone else started.
 4. **Workspaces / + New**. Your own workspaces. Click **+ New** to create a blank workspace.
-5. **Prompt box**. Type what you want to build (for example, "a dashboard that lists active subscriptions") and the builder drafts a starting App you then refine.
-6. **Discover / Ideate / Build / Visualize** phases. The four phases of the builder. Move between phases as you turn an idea into a runnable App.
+5. **Prompt box**. Type what you want to build (for example, "a dashboard that lists active subscriptions"), pick a model, and the builder drafts a starting App you then refine.
+6. **Discover / Ideate / Build / Visualize** phases. The four phases of the builder along the bottom of the prompt area. Move between phases as you turn an idea into a runnable App.
 
 {% hint style="success" %}
 **Result:** You have a workspace where you compose an App from APIs in your catalogue. Publish the workspace and consumers see it as a clonable starter on their own dashboard.
@@ -695,9 +800,9 @@ To edit a URL alias:
 4. Update the **Alias** field to the new public path (for example `/api/payment-service`).
 5. Click **Save**.
 
-![Figure 13-11. The URL aliases list, with the alias on the left, the system path on the right, and an Edit action per row.](.gitbook/assets/screenshots/provider/admin-config-search-path.png)
+![Figure 13-12. The URL aliases list, with the alias on the left, the system path on the right, and an Edit action per row.](.gitbook/assets/screenshots/provider/admin-config-search-path.png)
 
-The numbered callouts in Figure 13-11 are:
+The numbered callouts in Figure 13-12 are:
 
 1. **URL aliases** heading. The page heading. Each row maps one public path to one system path.
 2. **Filter aliases** input. Free-text filter that scopes the list to rows whose alias contains your text.
@@ -722,9 +827,9 @@ To add a redirect:
 5. Choose a **Status code**: `301 (Moved Permanently)` for renamed content, `302 (Found)` for temporary redirects.
 6. Click **Save**.
 
-![Figure 13-12. The Redirect list with the From and To paths, status code, and a sub-tab for fixing 404 pages.](.gitbook/assets/screenshots/provider/admin-config-search-redirect.png)
+![Figure 13-13. The Redirect list with the From and To paths, status code, and a sub-tab for fixing 404 pages.](.gitbook/assets/screenshots/provider/admin-config-search-redirect.png)
 
-The numbered callouts in Figure 13-12 are:
+The numbered callouts in Figure 13-13 are:
 
 1. **URL Redirects / Fix 404 pages** tabs. Tab strip. The first tab lists every active redirect. The second lists requests that returned 404 so you can convert them into redirects in one click.
 2. **From** column. The old path the marketplace receives a request for.
@@ -772,9 +877,9 @@ To configure domain registration rules:
 4. Enter the message a blocked user sees in the **Error message** field.
 5. Click **Save configuration** in the top-right.
 
-![Figure 13-13. The Domain registration form with the Restriction Type radio buttons, the Email domains list, and the Error message field.](.gitbook/assets/screenshots/provider/admin-config-system-domain-register.png)
+![Figure 13-14. The Domain registration form with the Restriction Type radio buttons, the Email domains list, and the Error message field.](.gitbook/assets/screenshots/provider/admin-config-system-domain-register.png)
 
-The numbered callouts in Figure 13-13 are:
+The numbered callouts in Figure 13-14 are:
 
 1. **Restriction Type** radios. Radio choice between an allow-list and a deny-list. Pick one mode. You cannot mix.
 2. **Email domains** field. One domain per line. Wildcards (`*.example.com`) match any subdomain. Use this list for both allow-list and deny-list modes.
@@ -802,9 +907,9 @@ To open and filter the inbox:
 5. Click **Filter** to apply, or **Reset** to clear.
 6. Click any row to open the notification detail. Opening a row marks it read.
 
-![Figure 13-14. The personal notifications inbox with Type, Status, and date filters above the entry list.](.gitbook/assets/screenshots/provider/notifications-inbox.png)
+![Figure 13-15. The personal notifications inbox with Type, Status, and date filters above the entry list.](.gitbook/assets/screenshots/provider/notifications-inbox.png)
 
-The numbered callouts in Figure 13-14 are:
+The numbered callouts in Figure 13-15 are:
 
 1. **Type** dropdown. Scopes the inbox to one event family (subscription events, governance scans, system announcements, webhook delivery failures, member invitations).
 2. **Status** dropdown. Scopes to **Read** or **Unread** entries. Default is **Any**.
@@ -818,6 +923,81 @@ The numbered callouts in Figure 13-14 are:
 
 {% hint style="success" %}
 **Tip:** When a downstream automation reports it stopped working, check the inbox for a webhook-delivery-failure entry. The detail view links to the webhook's delivery log covered earlier in this chapter.
+{% endhint %}
+
+## Managing portal features
+
+Feature Management is the master switchboard for the portal. Each toggle turns a whole capability on or off for your tenancy without a code deployment. Use it to roll a feature out gradually, to disable a capability your organisation does not use, or to gate an in-progress feature until it is ready.
+
+#### Enable or disable a portal feature
+
+Open Feature Management when you want to turn a capability on for the first time, retire one your team no longer uses, or stage a rollout where one feature group goes live ahead of another.
+
+#### Before you start
+
+- **Know what the feature controls.** Toggling a feature off hides every surface that depends on it for every user, not just yourself. Confirm no one relies on it before you switch it off.
+- **Group the change.** Features are organised into groups (User Management, API Engagement, Portal Workflows). Expand the group to see the individual toggles and the count of features it holds.
+
+To toggle a feature:
+
+1. From the left sidebar, expand **Settings** and click **Manage Features**.
+2. The **Feature Management** page loads with the feature groups collapsed. Each group shows a count of the features it holds.
+3. Click a group (for example **API Engagement**) to expand it and see the individual toggles.
+4. Flip the toggle on or off for the feature you want to change.
+5. The change saves on toggle. No separate save step is required.
+
+![Figure 13-23. The Feature Management page with the User Management, API Engagement, and Portal Workflows groups, each showing a feature count.](.gitbook/assets/screenshots/provider/admin-portal-features.png)
+
+The numbered callouts in Figure 13-23 are:
+
+1. **Feature Management** heading. The page heading. The line below it confirms you are enabling or disabling features for your portal.
+2. **User Management** group. The collapsible group holding user-facing toggles. The pill on the right shows how many features it contains.
+3. **API Engagement** group. The collapsible group holding API-discovery and engagement toggles.
+4. **Portal Workflows** group. The collapsible group holding workflow toggles such as moderation and approval gates.
+5. **Group expander**. The chevron on each row. Click it to expand the group and reveal the individual on/off toggles.
+
+{% hint style="success" %}
+**Result:** The capability is on or off across the portal immediately. Surfaces that depend on a disabled feature stop rendering for every user.
+{% endhint %}
+
+{% hint style="warning" %}
+**Caution:** Disabling a feature that other surfaces depend on can hide functionality your team relies on day to day. Toggle one feature at a time and confirm the affected surfaces still behave as expected before moving on.
+{% endhint %}
+
+## Reviewing the marketplace audit log
+
+The Marketplace Audit Log is the chronological record of every consequential action in the portal: content created and updated, members added, APIs published, and system events. Use it to answer "who changed this and when", to investigate an unexpected state change, or to satisfy a compliance review.
+
+#### Read and filter the audit log
+
+Open the audit log when you need to trace a specific change, confirm who performed an action, or export a window of activity for a review.
+
+To read the audit log:
+
+1. From the left sidebar, expand **Administration** and click **Audit Log**.
+2. The **Marketplace Audit Log** loads with the most recent entries first. Each row records the time, the user, the organisation, the entity, the operation, and the source IP.
+3. Use the **Organisation**, **Entity type**, **Content type**, and **Operation** filters to narrow the list. Combine them to find, for example, every `create` operation on an API entity within one organisation.
+4. Set a **From** and **To** date to scope the log to a window.
+5. Click **Filter** to apply, or **Reset** to clear.
+6. Click **Export CSV** in the top-right to download the filtered window for an offline review.
+
+![Figure 13-24. The Marketplace Audit Log with Organisation, Entity type, Content type, and Operation filters above the chronological entry list.](.gitbook/assets/screenshots/provider/admin-reports-marketplace-audit.png)
+
+The numbered callouts in Figure 13-24 are:
+
+1. **Marketplace Audit Log** heading. The page heading. The list below is the chronological activity record.
+2. **Organisation / Entity type / Content type / Operation** filters. Combine them to scope the log to a specific actor or action.
+3. **From / To** date inputs. Narrow the log to events between two dates.
+4. **Filter / Reset** buttons. **Filter** applies your selections. **Reset** clears every filter.
+5. **Operation** column. The action recorded for each row, tagged **create** or **update** so you can scan for a class of change at a glance.
+6. **Export CSV** button. Top-right action that downloads the currently filtered window for an offline or compliance review.
+
+{% hint style="success" %}
+**Result:** You see a filtered, time-ordered record of who did what across the portal, exportable for review.
+{% endhint %}
+
+{% hint style="success" %}
+**Tip:** When a downstream system reports an unexpected state, filter the audit log to the affected entity and the hour around the incident. The operation and user columns usually point straight at the change that caused it.
 {% endhint %}
 
 ## AI agent surfaces
@@ -840,9 +1020,9 @@ To schedule a publication:
 4. Optionally enter an **Unpublish on** date and time for content that should retire on its own.
 5. Save the item with status **Draft**. The marketplace publishes it at the scheduled time.
 
-![Figure 13-15. The Scheduled content queue showing every notice and content item with a future publish or transition date.](.gitbook/assets/screenshots/provider/admin-content-scheduled.png)
+![Figure 13-16. The Scheduled content queue showing every notice and content item with a future publish or transition date.](.gitbook/assets/screenshots/provider/admin-content-scheduled.png)
 
-The numbered callouts in Figure 13-15 are:
+The numbered callouts in Figure 13-16 are:
 
 1. **Scheduled** heading. The page heading. Each row is one content item with a future state change pending.
 2. **Title** column. The content title. Click to open the item and adjust dates or copy.
@@ -873,6 +1053,14 @@ To schedule a deprecation notice:
 5. Enter the **Delete date**, the date the API is fully removed.
 6. Write the **Notice body**. Explain why the API is going out of service and what consumers should do. Link to the replacement API if there is one.
 7. Click **Save**.
+
+![Figure 13-22. The Upcoming API Deprecation Notice configuration under Structure, where you define the deprecation notice entity for an API.](.gitbook/assets/screenshots/provider/admin-structure-deprecation-notice.png)
+
+The numbered callouts in Figure 13-22 are:
+
+1. **Upcoming API Deprecation Notice** heading. The page heading, reached from **Structure**. This is the settings surface for the deprecation notice entity type.
+2. **Settings panel**. The body of the form where you define the notice. Add a notice from here to attach a deprecation timeline to an API.
+3. **Save** button. Top-right action that persists the notice and arms the scheduled deprecation flow.
 
 {% hint style="success" %}
 **Result:** The notice is scheduled. From this point on:

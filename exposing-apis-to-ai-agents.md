@@ -157,6 +157,17 @@ To scope APIs to an MCP Server:
 4. Update the **System Prompt** to reflect the new scope. An agent told to *"focus on Payments"* will behave oddly if Payments is removed from the scope.
 5. Click **Save**.
 
+![Figure 10-3. Multiple APIs scoped to a single MCP Server on the Edit MCP Server form.](.gitbook/assets/screenshots/provider/mcp-server-16-edit.png)
+
+The numbered callouts in Figure 10-3 are:
+
+1. **APIs multi-select**. The selected APIs scoped to this server. Type a partial title to filter, click to add a pill, click the pill's `x` to remove. Each pill becomes a callable tool on the server.
+2. **Server Label field**. The human-readable name agents see in their tool list. Edit it here without breaking existing connections.
+3. **Base URL Override field**. Pre-filled with the storefront domain and a per-server path. Edit only when MCP traffic is fronted by a separate gateway.
+4. **Custom System Prompt textarea**. Sent to the agent alongside the tool definitions. Update it to reflect the new scope so the prompt and the API selection stay aligned.
+5. **Tools list**. The POST and GET endpoints generated from each scoped API's OpenAPI spec. Confirms which operations the agent can call.
+6. **Save Changes button**. Persists the edited scope. The list refreshes with the updated APIs on save.
+
 {% hint style="success" %}
 **Result:** The MCP Server's tool surface now reflects the new selection. Agents connected to the server enumerate the updated tool list on their next handshake.
 {% endhint %}
@@ -325,6 +336,16 @@ To set the branding:
 5. Pick a **Chat Accent Colour** from the colour picker or paste a hex value. The accent applies to the send button, the user-bubble background, and the focus ring.
 6. Click **Save configuration**.
 
+![Figure 10-5. The Branding section of the API GPT Settings form.](.gitbook/assets/screenshots/provider/mcp-settings-branding.png)
+
+The numbered callouts in Figure 10-5 are:
+
+1. **Assistant Name field**. Max 64 characters. Appears in the chat header. Set it to a name that maps to your storefront, for example *"Acme API Helper"*.
+2. **Avatar upload**. PNG, JPG, or SVG up to 1 MB. Renders at 32x32 in the chat header. A square image with a transparent background renders cleanly.
+3. **Welcome Message field**. Max 280 characters. Appears as the assistant's first bubble. Use one or two sentences to set expectations.
+4. **Chat Accent Colour picker**. Pick from the colour picker or paste a hex value. The accent applies to the send button, the user-bubble background, and the focus ring.
+5. **Save configuration button**. Persists the branding alongside the model settings. A green banner confirms the save.
+
 {% hint style="success" %}
 **Result:** The chat panel reflects the new branding. Consumers who open `/api-gpt` see your assistant's name, avatar, welcome message, and accent colour.
 {% endhint %}
@@ -352,6 +373,16 @@ To embed the chat panel:
 3. Click **Place block** in the region where you want the launcher to appear. Common choices: Home page hero, API discovery sidebar, footer.
 4. In the block configuration, optionally override the launcher label (defaults to the **Assistant Name** from API GPT Settings) and pick the visibility rules (which pages, which roles).
 5. Click **Save block**.
+
+![Figure 10-6. Placing the API GPT Chat Launcher block in the Home hero region on the Block layout page.](.gitbook/assets/screenshots/provider/admin-structure-block.png)
+
+The numbered callouts in Figure 10-6 are:
+
+1. **Block layout page heading**. Confirms you are at `/admin/structure/block`, the page that controls where each block renders.
+2. **Region list**. The named regions of the active theme. The Home page hero, sidebar, and footer regions each accept a placed block.
+3. **Place block button**. Opens the block picker for that region. Search for **API GPT Chat Launcher** in the picker to add it.
+4. **Placed block row**. Shows the API GPT Chat Launcher once placed, with its configure and remove controls.
+5. **Save blocks button**. Persists the region assignments. The launcher appears on the storefront after the save.
 
 {% hint style="success" %}
 **Result:** A floating chat launcher appears in the chosen region on every page that matches the visibility rules. Clicking the launcher opens the same chat as `/api-gpt`.
@@ -441,6 +472,8 @@ To observe AI-agent traffic:
 4. Scroll to **Recent Requests**. Each tool call appears as a row with method, path, status, and the **Source** column populated with `api-gpt` or the MCP Server label.
 5. Open the **Time-series chart**. AI-agent calls are coloured by Source: human traffic is the default series, MCP traffic is a second series, API GPT traffic is a third.
 6. Click any **Recent Request** row to see the full request and response, including the agent's reasoning trace if the source is API GPT.
+
+Once traffic flows, the **Recent Requests** table lists each tool call as its own row, and the **Source** column carries `api-gpt` or the MCP Server label so you can tell AI-agent calls apart from human ones at a glance.
 
 {% hint style="success" %}
 **Result:** The dashboard now distinguishes AI-agent traffic from human traffic. You can correlate spikes in API calls with chat conversations or external agent activity.

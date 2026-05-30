@@ -67,6 +67,53 @@ Verify:
 2. Repeat for the registration and forgot-password screens.
 3. Confirm any embedded link in the rich-text fields opens the right destination.
 
+#### Configure the signup form fields
+
+Use this task to decide what a new user is asked for when they self-register, and which of those fields are mandatory. The signup form fields screen controls the account profile attributes (name, company, country, and similar) that appear on the public registration form and which are required before the account can be created.
+
+#### Before you start
+
+- **Decide the minimum set of attributes you need at signup.** Every required field is friction on the registration form. Ask only for what an Org Admin genuinely needs to triage and approve the account.
+- **Know which attributes downstream workflows depend on.** If approval routing keys off a *Company* or *Country* value, that field must be present and required, or the routing has nothing to work with.
+- **Confirm whether SSO bypasses this form.** Federated users created through SAML are provisioned from IdP claims, not this form. The fields here apply to email-and-password self-registration.
+
+To configure the signup form fields:
+
+1. From the left sidebar, expand **SETTINGS** and click **Basic Site Settings**.
+2. Click the **Signup Form Fields** secondary tab at the top of the page.
+3. Tick the attributes that should appear on the public registration form in the **Enabled fields** list.
+4. For each enabled attribute, tick **Required** to make it mandatory before the account can be created, or leave it unticked to keep it optional.
+5. Reorder the fields if the screen supports drag handles, so the form reads in a sensible order.
+6. Click **Save configuration**.
+
+![Figure 12-2. The Signup Form Fields configuration screen.](.gitbook/assets/screenshots/provider/admin-config-people-signup-fields.png)
+
+The numbered callouts in Figure 12-2 are:
+
+1. **Signup Form Fields** tab. The page heading. The list below it enumerates every profile attribute that can be shown on the public registration form.
+2. **Enabled fields** list. A set of toggles, one per attribute. A ticked attribute renders on the registration form; an unticked one is hidden from new users.
+3. **Required** toggle. Sits beside each enabled field. When on, the registration form rejects a submission that leaves the field blank. Use it for attributes an Org Admin needs to approve the account.
+4. **Field order** handles. Drag controls that set the top-to-bottom order of the fields on the registration form. Group related fields so the form reads naturally.
+5. **Save configuration** button. Persists the field selection and the required flags. The registration form reflects the change on the next visit.
+
+{% hint style="success" %}
+**Result:** The public registration form shows the selected attributes, with the chosen fields marked required. New self-registered users must supply every required attribute before the account is created.
+{% endhint %}
+
+{% hint style="info" %}
+**Note:** Reducing the required set does not change accounts already created. Existing users keep whatever attributes they supplied at the time they registered.
+{% endhint %}
+
+{% hint style="success" %}
+**Tip:** Keep the required set short. A long registration form depresses sign-up completion. Capture the nice-to-have attributes as optional, or collect them later on the profile-edit screen once the user is in.
+{% endhint %}
+
+Verify:
+
+1. Open the registration screen in a private browser window and confirm the enabled fields render in the chosen order.
+2. Submit the form with a required field left blank and confirm it is rejected with a validation message.
+3. Complete a registration and confirm the supplied attributes appear on the new user's profile.
+
 #### Configure SAML against the identity provider
 
 Use this task when the organisation requires every user to sign in through a corporate identity provider, for example Okta, Azure AD, Ping, ADFS, or Auth0. SAML federation lets the marketplace delegate authentication to the IdP and create the local account on first sign-in.
@@ -97,9 +144,9 @@ To configure a SAML identity provider:
 11. Tick **Just-in-Time Provisioning** to create marketplace accounts automatically on first sign-in. Untick it if accounts must be pre-provisioned by an Org Admin.
 12. Click **Save**.
 
-![Figure 12-2. The Add IdP form on the SAML SSO settings screen.](.gitbook/assets/screenshots/provider/admin-config-saml-idp.png)
+![Figure 12-3. The Add IdP form on the SAML SSO settings screen.](.gitbook/assets/screenshots/provider/admin-config-saml-idp.png)
 
-The numbered callouts in Figure 12-2 are:
+The numbered callouts in Figure 12-3 are:
 
 1. **Identity Provider Name** field. A label that appears on the sign-in screen and in the SSO Configurations list. Pick a name that distinguishes IdPs if more than one is in use.
 2. **Entity ID** field. The unique identifier the IdP advertises. Copy it verbatim from the IdP's metadata; mismatches here are the most common cause of SAML failures.
@@ -251,9 +298,9 @@ To upload the logo and favicon:
 8. Click **Choose File** under **Upload favicon image** and select the favicon source.
 9. Click **Save configuration**.
 
-![Figure 12-3. The Appearance screen with installed themes and their Settings links.](.gitbook/assets/screenshots/provider/admin-appearance.png)
+![Figure 12-4. The Appearance screen with installed themes and their Settings links.](.gitbook/assets/screenshots/provider/admin-appearance.png)
 
-The numbered callouts in Figure 12-3 are:
+The numbered callouts in Figure 12-4 are:
 
 1. **Installed themes** section. Lists every theme available on the marketplace. The default theme is marked with a label.
 2. **Theme card**. Each theme is shown with a thumbnail, name, and version. The card surfaces the actions for that theme.
@@ -368,9 +415,9 @@ To register a custom domain:
 6. Optionally enter a label in the **Display name** field. This appears in the admin domain list to disambiguate similar hostnames.
 7. Click **Save**.
 
-![Figure 12-4. The custom-domain register screen.](.gitbook/assets/screenshots/provider/admin-config-system-domain-register.png)
+![Figure 12-5. The custom-domain register screen.](.gitbook/assets/screenshots/provider/admin-config-system-domain-register.png)
 
-The numbered callouts in Figure 12-4 are:
+The numbered callouts in Figure 12-5 are:
 
 1. **Hostname** field. The fully qualified domain name that should answer on the marketplace. Lower-case and trimmed of any protocol prefix.
 2. **Protocol** dropdown. **https** for production. The marketplace rejects plain HTTP in non-development modes.
@@ -421,9 +468,9 @@ To scope branding per Organisation:
 7. Optionally override the theme by picking one from the **Storefront theme** dropdown. Leave on *Inherit* to use the site-wide default.
 8. Click **Save**.
 
-![Figure 12-5. The Organisation edit form with the Branding fieldset.](.gitbook/assets/screenshots/provider/admin-config-marketplace-organisation.png)
+![Figure 12-6. The Organisation edit form with the Branding fieldset.](.gitbook/assets/screenshots/provider/admin-config-marketplace-organisation.png)
 
-The numbered callouts in Figure 12-5 are:
+The numbered callouts in Figure 12-6 are:
 
 1. **Inherit from site default** checkbox. When ticked, the Organisation uses the site-wide branding and the per-Org fields below are hidden. Untick to expose the override fields.
 2. **Organisation logo** field. A file picker. The uploaded image replaces the site-wide logo on storefront URLs scoped to this Organisation.
@@ -455,37 +502,37 @@ Verify:
 
 #### Preview the storefront before going live
 
-Use this task before any visible branding change becomes the default for consumers. The preview path renders the storefront with the in-progress configuration without affecting what real users see.
+Use this task before any visible branding change becomes the default for consumers. Reviewing the storefront in a clean browser session shows the look a real visitor sees, so you catch problems before they reach the wider user base.
 
 #### Before you start
 
-- **Have the branding changes staged.** Logo uploaded, accent colour set, theme picked. The preview reads from the configuration as soon as it saves, so commit the changes before previewing.
-- **Open a private browser window.** Avoids stale CSS, stale logo binaries, and stale session state from polluting the preview.
-- **Decide who else needs to see the preview.** Often the comms team, the brand lead, and one engineering reviewer. Send them the preview URL before you flip the canonical domain.
+- **Have the branding changes staged.** Logo uploaded, accent colour set, theme picked. Saved branding applies as soon as it saves, so commit the changes before reviewing them.
+- **Open a private browser window.** Avoids stale CSS, stale logo binaries, and stale session state from polluting the view.
+- **Decide who else needs to see the result.** Often the comms team, the brand lead, and one engineering reviewer. Walk them through the storefront before you flip the canonical domain.
 
 To preview the storefront:
 
 1. Save every branding change first (logo, favicon, accent colour, theme, per-Org overrides).
-2. From the left sidebar, expand **SETTINGS** and click **Appearance**.
-3. Click **Preview storefront** in the page header, or open `<your-portal-domain>/?preview=1` in a private browser window.
+2. Open a private browser window so stale CSS, logo binaries, and session state do not pollute the view.
+3. Visit the storefront root at `<your-portal-domain>/` in that window.
 4. Walk the consumer-facing pages: homepage, API catalogue, a Product detail page, the sign-in screen.
 5. Confirm the logo, accent colour, and theme apply consistently across each page.
 6. Sign out and confirm the auth screens carry the branding as well.
 
 {% hint style="success" %}
-**Result:** The storefront renders with the staged branding for any user with the preview URL, while everyone else continues to see the previous storefront.
+**Result:** The storefront renders with the staged branding. Reviewing it in a private window confirms the look a consumer sees on their first visit, before the change reaches your team's everyday sessions.
 {% endhint %}
 
 {% hint style="info" %}
-**Note:** The preview URL is signed with a token that expires after 24 hours. Re-generate the link by clicking **Preview storefront** again when sharing with reviewers across multiple sessions.
+**Note:** Saved branding applies immediately to the live storefront. To stage and review a change without affecting consumers, make and review the change on a non-production environment first, then promote it.
 {% endhint %}
 
 {% hint style="success" %}
-**Tip:** Capture screenshots of the preview at three breakpoints (mobile, tablet, desktop) and attach them to the change ticket. The screenshots make the rollback decision easier if a stakeholder later asks "what did it look like before?"
+**Tip:** Capture screenshots of the storefront at three breakpoints (mobile, tablet, desktop) and attach them to the change ticket. The screenshots make the rollback decision easier if a stakeholder later asks "what did it look like before?"
 {% endhint %}
 
 {% hint style="warning" %}
-**Caution:** The preview applies the staged branding to the storefront only. Per-Org overrides render in preview when the URL is scoped to that Organisation, for example `/<org-slug>/?preview=1`. Confirm both the site-wide and the per-Org views before going live.
+**Caution:** Site-wide branding applies to the storefront root. Per-Org overrides render only when the URL is scoped to that Organisation, for example `/<org-slug>/`. Confirm both the site-wide and the per-Org views before announcing the change.
 {% endhint %}
 
 ## Setting global site preferences
@@ -513,9 +560,9 @@ To configure site basics:
 7. (Optional) Enter the path to a custom 404 page in the **Default 404 (not found) page** field.
 8. Click **Save configuration**.
 
-![Figure 12-6. The Basic Site Settings screen.](.gitbook/assets/screenshots/provider/admin-config-devportal-site-settings.png)
+![Figure 12-7. The Basic Site Settings screen.](.gitbook/assets/screenshots/provider/admin-config-devportal-site-settings.png)
 
-The numbered callouts in Figure 12-6 are:
+The numbered callouts in Figure 12-7 are:
 
 1. **Site name** field. The marketplace's display name. Appears in the browser tab title and as the from-name on system-generated email.
 2. **Slogan** field. An optional one-line tagline. Themes may render it in the header; some themes ignore it.

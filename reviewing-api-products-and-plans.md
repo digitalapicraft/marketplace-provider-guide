@@ -19,6 +19,26 @@ Allow ~30 minutes per Product for the first review-and-enrich pass, plus 5 minut
 
 Each gateway implements its own version of the bundle idea. Apigee Products bundle proxies, Kong groups Services into bundles, AWS API Gateway uses Usage Plans, MuleSoft uses API Groups. Each gateway also carries a Plan attached to that bundle defining the runtime quota and rate-limit numbers it will enforce on every call. The marketplace normalises all of these shapes into a single **API Products** list on the Provider side, with the Plan and its numbers shown alongside the Product they apply to.
 
+Most Products reach the marketplace through a gateway sync, covered next. A Product can also be created by hand through the **Create API Product** wizard, for a bundle that has no gateway counterpart yet or for a documentation-only placeholder you will attach to a gateway later. The wizard is the same form you use to enrich a synced Product, opened on a blank node.
+
+![Figure 7-1. The Create API Product wizard, used to author a Product by hand when no gateway sync exists yet.](.gitbook/assets/screenshots/provider/node-add-api-products.png)
+
+The numbered callouts in Figure 7-1 are:
+
+1. **Title field**. The consumer-facing Product name. On a manual Product you type this directly; on a synced Product the gateway pre-fills it. Marketplace-owned either way.
+2. **Overview editor**. The rich-text body a consumer reads on the Product detail page. Pick **Markdown** from the **Text format** dropdown when you need lists or links.
+3. **Logo image field**. The square icon that anchors the catalog tile. Upload a PNG or SVG of 256x256 or larger.
+4. **Categories and Tags fields**. The taxonomy that surfaces the Product to the right audience filters. Reuse the same values you applied to the underlying APIs.
+5. **Right-rail panels**. The **Visibility**, **Status**, and **Publishing options** panels, identical to the synced-Product edit form. Leave **Status** at **Draft** until the consumer-facing copy is complete.
+
+{% hint style="info" %}
+**Note:** A manually created Product carries no Plan, quota, rate limit, or bundled APIs until it is associated with a gateway and synced. Those fields are gateway-owned and stay read-only on the marketplace. To give a manual Product real runtime terms, publish the matching bundle on a gateway and re-sync.
+{% endhint %}
+
+{% hint style="success" %}
+**Tip:** Reach the wizard from **Manage API Products** by clicking **Add API Product** above the list. The form opens on a blank node at `/node/add/api_products`.
+{% endhint %}
+
 Because the gateway is the only system that can enforce the quota and rate-limit at runtime, the marketplace deliberately treats those values as read-only mirrors. A figure shown on the catalog that did not match what the gateway actually enforces would mislead consumers, and the next sync would rewrite every gateway-controlled field to whatever the gateway currently reports anyway. The rule of thumb is straightforward. If a value affects how the gateway accepts or rejects a runtime call (quota, period, rate limit, which APIs are in the bundle, the Plan tier name), change it in the gateway. If a value affects how a consumer reads the catalog tile and detail page (title, overview, logo, categories, tags, visibility, moderation state), change it on the marketplace.
 
 #### Trigger a Product sync from a connected gateway
@@ -71,9 +91,9 @@ To read the list:
 2. Read the column headers from left to right. The default order surfaces identity first, source second, Plan terms third, lifecycle last.
 3. Hover any column header. Sortable headers show an arrow indicator on hover; click to toggle ascending or descending.
 
-![Figure 7-1. The Manage API Products list with synced Products and the per-row Edit action.](.gitbook/assets/screenshots/provider/admin-manage-api-products.png)
+![Figure 7-2. The Manage API Products list with synced Products and the per-row Edit action.](.gitbook/assets/screenshots/provider/admin-manage-api-products.png)
 
-The numbered callouts in Figure 7-1 are:
+The numbered callouts in Figure 7-2 are:
 
 1. **Title column**. The consumer-facing Product name. New synced rows show the gateway-supplied name until you replace it on the edit form. Marketplace-controlled. Sort this column to scan a long catalog quickly.
 2. **Status column**. Shows **Draft**, **Needs Review**, **Published**, or **Archived**. Marketplace-controlled. State changes are made on the edit form, never inline on the list.
@@ -125,9 +145,9 @@ To filter and re-sort:
 
 A second view of the same list is useful when verifying a publication change took effect, or when comparing two Products from different gateways side by side. The columns are identical, but it is worth knowing what the row looks like once **Status** has flipped away from **Draft**.
 
-![Figure 7-2. An alternative view of the Manage API Products list, useful when verifying that a freshly published Product has appeared with the right Plan and Status.](.gitbook/assets/screenshots/provider/admin-manage-api-products-2.png)
+![Figure 7-3. An alternative view of the Manage API Products list, useful when verifying that a freshly published Product has appeared with the right Plan and Status.](.gitbook/assets/screenshots/provider/admin-manage-api-products-2.png)
 
-The numbered callouts in Figure 7-2 are:
+The numbered callouts in Figure 7-3 are:
 
 1. **Title cell with logo thumbnail**. Once a logo is uploaded on the edit form, it renders as a 32x32 thumbnail next to the Title. A blank slot here means no logo has been attached yet.
 2. **Status pill**. Coloured pill rendering of the moderation state. **Published** is green, **Draft** is grey, **Archived** is amber, **Needs Review** is blue.
@@ -491,9 +511,9 @@ To open it:
 3. Read the **State** column. Pills match the **Status** column on Manage API Products.
 4. Click a row to open the moderation log for that Product.
 
-![Figure 7-3. The Moderated content admin page, scoped to Products with a moderation state history.](.gitbook/assets/screenshots/provider/admin-content-moderated.png)
+![Figure 7-4. The Moderated content admin page, scoped to Products with a moderation state history.](.gitbook/assets/screenshots/provider/admin-content-moderated.png)
 
-The numbered callouts in Figure 7-3 are:
+The numbered callouts in Figure 7-4 are:
 
 1. **Type filter**. Multi-select of node types under moderation. Pick **API Product** to scope this view to Products.
 2. **Moderation state column**. Current state pill (Draft, Needs Review, Published, Archived).
@@ -527,9 +547,9 @@ To schedule a publication:
 4. (Optional) Set the **Unpublish on** field to a later date and time to automatically retire the Product, for example for a time-bounded promotional Product.
 5. Click **Save**. The Product appears on the **Scheduled** tab of **Manage API Products** until the publication time arrives.
 
-![Figure 7-4. The Scheduled tab of Manage API Products, showing Products with a future publish time.](.gitbook/assets/screenshots/provider/admin-manage-api-products-scheduled.png)
+![Figure 7-5. The Scheduled tab of Manage API Products, showing Products with a future publish time.](.gitbook/assets/screenshots/provider/admin-manage-api-products-scheduled.png)
 
-The numbered callouts in Figure 7-4 are:
+The numbered callouts in Figure 7-5 are:
 
 1. **Scheduled tab**. Sits next to the default **Live** tab and lists every Product with a future **Publish on** time.
 2. **Scheduled at column**. The wall-clock time the Product will become live, in the marketplace timezone.
@@ -558,9 +578,9 @@ To open it:
 2. Filter by **Type: API Product** to scope the list to Products.
 3. Read the **Scheduled date** column. Each row carries the wall-clock time the action will fire.
 
-![Figure 7-5. The Scheduled content admin page, listing all nodes with pending publish or unpublish times.](.gitbook/assets/screenshots/provider/admin-content-scheduled.png)
+![Figure 7-6. The Scheduled content admin page, listing all nodes with pending publish or unpublish times.](.gitbook/assets/screenshots/provider/admin-content-scheduled.png)
 
-The numbered callouts in Figure 7-5 are:
+The numbered callouts in Figure 7-6 are:
 
 1. **Type filter**. Multi-select for scoping the list by node type.
 2. **Action column**. Names the scheduled action: **Publish** or **Unpublish**.

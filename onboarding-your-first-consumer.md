@@ -186,6 +186,8 @@ To inspect:
 4. Confirm the description matches the requested Product. A vague description against a high-value Product is a flag for a follow-up question.
 5. Read the redirect URLs. They should point at the consumer's domain. A localhost URL is acceptable during development but not for a Product slated for production traffic.
 
+The Overview tab gathers the registering user, the organisation, the app description, the registered redirect URLs, and any contact email into a single read-only panel.
+
 {% hint style="info" %}
 **Note:** The marketplace shows the registering user as the *primary contact* for the app. Organisations with several developers often have one user register the app on behalf of the team; treat the registering user as a starting point for outreach, not the only person involved.
 {% endhint %}
@@ -204,6 +206,8 @@ To inspect credentials:
 2. Read the credentials table. Each row shows the credential type (typically API key), the credential prefix (the first few characters of the key, never the full key), the issue date, the expiry date if set, and the current status (Active, Suspended, Revoked).
 3. For each Active credential, confirm the consumer has only one key per subscription. Multiple Active credentials per subscription is unusual and usually means a previous rotation was not completed cleanly.
 4. Read the **Last used** timestamp on each credential. A credential issued months ago with no Last used is either a credential the consumer never integrated or a credential they have abandoned in favour of another.
+
+The Credentials tab lists each issued key with its type, prefix, issue date, optional expiry, status, and last-used timestamp, one row per credential.
 
 {% hint style="warning" %}
 **Caution:** The full credential value is shown to the consumer exactly once, immediately after issue, on their My Apps page on the portal. Providers see only the prefix. If a consumer reports a lost key, the path forward is rotation, not retrieval; nobody can recover the original.
@@ -224,6 +228,8 @@ To review:
 3. *Pending* rows here are the same requests you see on the main queue. Approving from the app detail page and approving from the queue have identical effects.
 4. *Active* rows show the **Last call** column populated once the consumer has called the API at least once.
 5. *Revoked* and *Suspended* rows stay visible for audit. A row that flips to *Revoked* does not disappear from the tab; it remains for the historical record.
+
+The Subscriptions tab lists every Product the app is subscribed to, one row per subscription, with its plan, current state, approval date, and last-call timestamp.
 
 {% hint style="success" %}
 **Tip:** Use the Subscriptions tab as a sanity check before approving a high-value Product. If the same app already has three Active subscriptions to your Products with no traffic, the consumer may be staging requests faster than their integration can absorb them.
@@ -257,6 +263,20 @@ To approve a subscription:
 4. Optionally fill the **Notes** field with text the consumer should see in the notification email. Two to three sentences is the right length.
 5. Click **Confirm**. The dialog closes, the row's Status flips to *Active*, and a confirmation toast appears at the top of the page.
 6. Behind the scenes, the marketplace provisions the API key on the gateway, registers the key against the consumer's app, and queues the notification email. The full sequence typically completes in under fifteen seconds.
+
+The approval dialog summarises the consumer's app, the Product, the plan, and the requested quota, and offers an optional **Notes** field whose contents surface in the consumer's notification email.
+
+Once you act on a request, it leaves the pending list and lands on the **Processed Requests** view, where every approved and rejected subscription is kept with the disposition you assigned.
+
+![Figure 8-3. The Product Subscriptions page on the Processed Requests view, listing each approved and rejected subscription with its disposition.](.gitbook/assets/screenshots/provider/subscriptions-processed.png)
+
+The numbered callouts in Figure 8-3 are:
+
+1. **Processed Requests tab.** The view that holds every request you have already actioned. Switch here after approving or rejecting to confirm the row recorded the disposition you intended.
+2. **App and Consumer columns.** The consumer-side app and the user who registered it, carried over from the pending row so you can trace a processed decision back to its requester.
+3. **Product and Plan columns.** The API Product and plan tier the subscription was against.
+4. **Status column.** The recorded disposition: *Active* for an approval, *Revoked* for a rejection. This is the post-decision state, not the original pending state.
+5. **Actions menu.** Per-row actions that remain available after the decision, such as **Suspend** or **Revoke Access** on an approved row.
 
 {% hint style="success" %}
 **Result:** The subscription is *Active*. The gateway accepts calls authenticated with the new key. The consumer sees the key on their My Apps page and receives an email containing the key location and a link to your Product documentation.
@@ -334,6 +354,8 @@ To rotate:
 4. Click the **Rotate** action on the row. A confirmation dialog opens with a **Reason** field.
 5. Fill the **Reason** field with the rotation rationale. One or two sentences is enough.
 6. Click **Confirm**. The marketplace issues a new credential, revokes the old credential on the gateway, and queues a notification email containing the new key location for the consumer.
+
+The rotate dialog carries a **Reason** field for the rotation rationale, which surfaces in the consumer's notification email and the audit log.
 
 {% hint style="success" %}
 **Result:** The old credential is *Revoked* on the gateway. A new *Active* credential row sits at the top of the credentials table. The consumer sees the new key on their My Apps page and receives an email with the new key location.
@@ -432,6 +454,8 @@ To revoke:
 3. Fill the **Reason** field with one to three sentences explaining why. Be specific. "Contract end-date reached. Please re-subscribe under the new contract reference if the relationship is renewed." is a better revocation reason than "End of contract."
 4. Click **Confirm**. The row's Status moves to *Revoked*, the gateway destroys the key, and the consumer receives a notification email.
 
+The revoke dialog requires a **Reason** text area before it will confirm, and the reason it captures is written to both the consumer's notification email and the audit log.
+
 {% hint style="success" %}
 **Result:** The consumer's calls return `401` from the moment the revoke completes. The key is destroyed; the audit log records who acted and why. The row stays on the queue under the *Revoked* filter for audit.
 {% endhint %}
@@ -472,6 +496,8 @@ To look up traffic:
 4. If the count is non-zero and the recent response codes are `2xx`, the integration is live and healthy. Move on; you will revisit usage in the aggregate Provider Analytics page (covered in the Monitoring usage chapter).
 5. If the count is non-zero and the response codes are `401` or `403`, the consumer's key is not being sent correctly. Reach out and ask them to double-check the header name and value.
 6. If the response codes are `5xx`, the API itself is failing. Check the gateway logs and your upstream service before assuming the consumer is at fault.
+
+The subscription detail page gathers the current-period call count, the all-time count, the last-call timestamp, and a recent-responses panel of the most recent HTTP status codes into one place.
 
 {% hint style="success" %}
 **Result:** You have visibility into first-call success and can identify integration problems while the consumer is still in onboarding, often before they raise a ticket.
