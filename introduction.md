@@ -16,7 +16,17 @@ Every API your organisation builds carries business value: a payments call, a cu
 
 A marketplace opens three growth levers that a raw gateway cannot. Each one turns existing engineering work into reachable revenue.
 
-<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Sell more in markets you already serve</strong></td><td>Publish your APIs as subscribable products to the customers and partners you have today. A self-service catalog with live docs and instant sign-up shortens the path from "interested" to "integrated" from weeks to minutes.</td></tr><tr><td><strong>Reach new markets through partners</strong></td><td>Onboard third-party providers and let them publish alongside you. Their APIs widen your catalog, their audiences become yours, and the marketplace becomes an ecosystem rather than a single vendor's price list.</td></tr><tr><td><strong>Build faster and cheaper by composing</strong></td><td>Consume partner and third-party APIs from the same catalog your own teams use. Integrate proven capabilities instead of rebuilding them, and cut both cost and time to market.</td></tr></tbody></table>
+{% hint style="info" %}
+**Sell more in markets you already serve.** Publish your APIs as subscribable products to the customers and partners you have today. A self-service catalog with live docs and instant sign-up shortens the path from "interested" to "integrated" from weeks to minutes.
+{% endhint %}
+
+{% hint style="success" %}
+**Reach new markets through partners.** Onboard third-party providers and let them publish alongside you. Their APIs widen your catalog, their audiences become yours, and the marketplace becomes an ecosystem rather than a single vendor's price list.
+{% endhint %}
+
+{% hint style="warning" %}
+**Build faster and cheaper by composing.** Consume partner and third-party APIs from the same catalog your own teams use. Integrate proven capabilities instead of rebuilding them, and cut both cost and time to market.
+{% endhint %}
 
 ## Who it serves
 
