@@ -86,9 +86,9 @@ Marketplace is the enterprise console that delivers these capabilities. The stor
 
 ## Architecture at a glance
 
-![Figure 2. The Marketplace architecture: consumer-side surfaces and AI agents, the marketplace storefront and provider console, the connected API gateways and their backend services. Solid arrows show consumer traffic; dotted arrows show the synchronisation flow that populates the marketplace catalog.](.gitbook/assets/screenshots/provider/architecture.png)
+![Figure 2. Marketplace architecture: runtime API traffic flows directly from consumers to the connected gateways and on to the backend services. The marketplace operates as a management plane for discovery, subscriptions, governance, analytics, and read-only catalog synchronisation; it is not a proxy in the request path.](.gitbook/assets/screenshots/provider/architecture.png)
 
-The marketplace sits between the consumer-facing storefront and the runtime gateways. Provider work happens in the console at `/admin/...`. Consumer work happens in the public catalog at the root URL. AI agents reach a curated slice of APIs through the MCP server. Every gateway, every spec source, every notification target is configured once and surfaces in the same console.
+The marketplace is a management plane, not a runtime proxy. Consumers send their API calls directly to the connected gateways, which enforce policy and forward the request to the backend services. The marketplace itself is out of the request path. It provides the storefront where consumers discover APIs and request subscriptions, the provider console at `/admin/...` where you operate the catalog, and a read-only synchronisation with each connected gateway that keeps the catalog, Products, and Plans current. Gateway-side configuration such as Plans, quotas, and rate limits stays on the gateway and is presented in the marketplace as read-only.
 
 ## Deployment models
 
