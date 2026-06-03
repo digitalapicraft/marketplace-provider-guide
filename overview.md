@@ -4,51 +4,51 @@ icon: circle-info
 
 # Overview
 
-This page is the why and the what behind Marketplace: the business case for running an API marketplace, the value it creates, the capabilities it gives you, and how it fits together. For the step-by-step tasks, follow the chapters from [Getting started](getting-started.md) onward.
+This page sets out the business rationale for an API marketplace, the value it delivers, the capabilities it provides, and how the components fit together. For step-by-step procedures, follow the chapters from [Getting started](getting-started.md) onward.
 
 ## Why an API marketplace
 
-A marketplace opens three growth levers that a raw gateway cannot. Each one turns existing engineering work into reachable revenue.
+A marketplace provides three avenues for growth that a gateway alone does not. Each converts existing engineering investment into commercial value.
 
 {% hint style="info" %}
-**Sell more in markets you already serve.** Publish your APIs as subscribable products to the customers and partners you have today. A self-service catalog with live docs and instant sign-up shortens the path from "interested" to "integrated" from weeks to minutes.
+**Grow revenue in existing markets.** Publish your APIs as subscribable products to current customers and partners. A self-service catalog with interactive documentation and self-registration shortens the path from initial interest to active integration.
 {% endhint %}
 
 {% hint style="success" %}
-**Reach new markets through partners.** Onboard third-party providers and let them publish alongside you. Their APIs widen your catalog, their audiences become yours, and the marketplace becomes an ecosystem rather than a single vendor's price list.
+**Expand into new markets through partners.** Onboard third-party providers to publish alongside your own teams. Their APIs broaden the catalog and extend your reach to their audiences, establishing an ecosystem rather than a single-vendor catalog.
 {% endhint %}
 
 {% hint style="warning" %}
-**Build faster and cheaper by composing.** Consume partner and third-party APIs from the same catalog your own teams use. Integrate proven capabilities instead of rebuilding them, and cut both cost and time to market.
+**Accelerate delivery by composing existing APIs.** Consume partner and third-party APIs from the same catalog your teams use to publish. Integrating proven capabilities rather than rebuilding them reduces both cost and time to market.
 {% endhint %}
 
 ## Who it serves
 
-A marketplace is a shared hub, not a one-way feed. It gives every audience a custom-branded experience and a reason to come back.
+A marketplace serves several audiences, each with a tailored, branded experience.
 
-- **Providers** (your product teams and partner developers) publish APIs, enrich them with documentation and branding, set who can see them, and watch how they are used.
-- **Consumers** (external customers and internal teams) discover APIs, read interactive docs, request access, manage their credentials, and build with confidence.
-- **The business** gets a governed channel where access is controlled, usage is measured, and subscriptions become repeatable revenue streams.
+- **Providers** (product teams and partner developers) publish APIs, enrich them with documentation and branding, define who may access them, and monitor how they are used.
+- **Consumers** (external customers and internal teams) discover APIs, review interactive documentation, request access, manage their credentials, and build against them with confidence.
+- **The business** gains a governed channel in which access is controlled, usage is measured, and subscriptions provide recurring revenue.
 
-This collaboration across your organisation, your customers, and your partners is what compounds into growth. A gateway moves traffic; a marketplace builds an ecosystem around it.
+This collaboration across the organisation, its customers, and its partners compounds over time. A gateway manages traffic; a marketplace builds an ecosystem around it.
 
 {% hint style="info" %}
-**One API is rarely the product.** Customers buy outcomes, not endpoints. Marketplace lets you bundle related APIs into Products and Plans so a subscriber gets a complete capability, with the commercial terms attached, instead of a list of disconnected URLs.
+**A single API is rarely the product.** Customers adopt complete capabilities rather than individual endpoints. Marketplace lets you bundle related APIs into Products and Plans, so a subscriber receives a complete capability with its commercial terms defined, rather than a set of disconnected endpoints.
 {% endhint %}
 
 ## How the marketplace creates value
 
-The marketplace sits between the teams that build APIs and the audiences that consume them. Your product teams and partners publish into one branded catalog. Governance and approval keep quality and access under control. Plans and metering turn access into subscriptions. Consumers discover, subscribe, and build, and the usage they generate feeds the analytics that tell you where to invest next. That cycle is the engine of growth.
+The marketplace sits between the teams that build APIs and the audiences that consume them. Product teams and partners publish into one branded catalog. Governance and approval maintain quality and control access. Plans and metering convert access into subscriptions. Consumers discover, subscribe, and build, and the resulting usage informs the analytics that guide future investment. This cycle sustains growth.
 
 ![Figure 1. How the marketplace creates value: supply-side teams publish into a governed catalog, demand-side consumers subscribe through Plans and metering, and the resulting usage and revenue fund the next wave of APIs.](.gitbook/assets/screenshots/provider/value-flow.png)
 
-## What you can do, and the business value
+## Capabilities and business value
 
-Each capability in the marketplace maps to a business outcome, not only a technical one.
+Each capability maps to a business outcome, not only a technical one.
 
 | Capability | What it does | Business value |
 | --- | --- | --- |
-| Branded catalog and discovery | Consumers browse, search, and filter every published API and Product in a storefront styled to your brand. | Easy discovery turns interest into adoption and keeps customers returning to your own channel. |
+| Branded catalog and discovery | Consumers browse, search, and filter every published API and Product in a storefront styled to your brand. | Straightforward discovery converts interest into adoption and retains customers on your own channel. |
 | Multi-gateway connections | One console reads APIs and Products from every major gateway, wherever they run. | Reuse the gateways you already operate, with no migration or re-platforming cost. |
 | API governance scoring | Every specification is scored against linting rulesets, with severity-ranked findings and remediation guidance. | Consistent, high-quality APIs reach consumers, protecting your brand and lowering support load. |
 | Products and Plans | Related APIs bundle into Products carrying the Plan, quota, and rate-limit terms consumers subscribe to. | Customers buy a complete capability with clear commercial terms, not a list of disconnected endpoints. |
@@ -56,19 +56,19 @@ Each capability in the marketplace maps to a business outcome, not only a techni
 | Role and persona-based access | Built-in and custom roles, teams, and visibility scopes decide what each audience sees. | The right people see the right products, and access itself becomes a commercial boundary. |
 | Provider analytics | Time-series traffic per API, per Organisation, and per consumer, filterable and exportable. | Usage data shows what is working, who is active, and where to invest next. |
 | Application and credential management | Every consumer application, its issued keys, and its subscriptions are visible and manageable in one place. | Faster, safer onboarding and credential rotation builds consumer confidence. |
-| AI-agent access | A curated slice of APIs is exposed to AI agents and a storefront chat assistant. | Your APIs reach the fast-growing channel of AI-driven consumption without exposing everything. |
+| AI-agent access | A curated set of APIs is exposed to AI agents and a storefront chat assistant. | Your APIs reach the emerging channel of AI-driven consumption without exposing the full catalog. |
 | Notifications and webhooks | Organisation-wide announcements plus outbound webhook deliveries on every key event. | Subscribers stay informed and downstream systems automate on marketplace activity. |
 | Branding, theming, and custom domains | Per-Organisation logo, theme, accent colour, and additional registered domains. | A familiar, on-brand experience gives customers confidence and encourages repeat use. |
 
 ## What Marketplace is
 
-Marketplace is the enterprise console that delivers all of the above. The storefront publishes your APIs to a branded developer catalog. The control plane connects to every major API gateway, so one console covers APIs wherever they run. The governance and operations layer scores every spec, routes every subscription through approval, measures every call, and notifies every operator on every event.
+Marketplace is the enterprise console that delivers these capabilities. The storefront publishes your APIs to a branded developer catalog. The control plane connects to every major API gateway, so a single console covers APIs wherever they run. The governance and operations layer scores each specification, routes each subscription through approval, measures traffic, and notifies operators of relevant events.
 
 {% hint style="info" %}
 **Who this guide is for.** You are the API Provider or Portal Admin who runs the marketplace day-to-day: you connect the organisation's gateways, import APIs into the catalog, complete the consumer-facing metadata, approve subscription requests, monitor usage, and operate the administrative surfaces. This guide walks every surface you reach from sign-in onwards.
 {% endhint %}
 
-## What the marketplace gives you
+## Platform capabilities
 
 - **Multi-gateway connections.** Register a connection to any supported gateway (Apigee, Apigee X, Kong, MuleSoft, AWS API Gateway, Azure API Management, IBM API Connect, Tyk, APISIX, Aelix). The marketplace reads APIs and Products from the connected gateway without relocating them.
 - **Documentation and repository sources.** Pull API specifications from spec registries (SwaggerHub, Postman) and source-control systems (GitHub, Bitbucket, Azure Repos) for APIs not yet behind a runtime gateway.
