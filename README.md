@@ -4,12 +4,12 @@ icon: book-open
 
 # Marketplace
 
-**Your APIs are products. Marketplace is where you sell them.**
+**Marketplace turns your organisation's APIs into governed, discoverable products.**
 
-Every API your organisation builds carries business value: a payments call, a customer-lookup, a logistics feed. On their own, those endpoints sit behind a gateway where only the team that built them knows they exist. Marketplace turns them into a branded, discoverable catalog that customers, partners, and internal teams can find, trial, subscribe to, and build on. The API stops being plumbing and becomes a product with an audience.
+Every API your organisation builds represents business capability: a payments service, a customer-record lookup, a logistics feed. While that capability remains behind a gateway, it reaches only the teams that already know it exists. Marketplace publishes your APIs into a single branded catalog where customers, partners, and internal teams can discover them, evaluate them, subscribe under governed terms, and build against them with confidence. Each API becomes a managed product with defined ownership, documentation, and commercial terms.
 
 {% hint style="success" %}
-**Why this matters.** Companies in the API economy do not stop at exposing APIs. They package them as products and put them in front of the people who pay for them. A marketplace is the storefront, the contract desk, and the analytics room for that business, all in one console.
+**Why this matters.** In the API economy, leading organisations treat APIs as commercial products rather than internal interfaces. A marketplace provides the single environment in which to publish those products, govern who consumes them, and measure how they perform across the business.
 {% endhint %}
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Connect and import APIs</strong></td><td>Link any supported gateway and pull your APIs into one branded catalog.</td><td><a href="connecting-your-first-gateway.md">connecting-your-first-gateway.md</a></td></tr><tr><td><strong>Govern and publish</strong></td><td>Score every spec, complete the consumer-facing detail, and publish to the storefront.</td><td><a href="reviewing-api-governance.md">reviewing-api-governance.md</a></td></tr><tr><td><strong>Onboard and monetize consumers</strong></td><td>Approve subscriptions, issue credentials, and bundle APIs into Products and Plans.</td><td><a href="onboarding-your-first-consumer.md">onboarding-your-first-consumer.md</a></td></tr><tr><td><strong>Expose APIs to AI agents</strong></td><td>Publish a curated slice of APIs to AI agents and the storefront chat assistant.</td><td><a href="exposing-apis-to-ai-agents.md">exposing-apis-to-ai-agents.md</a></td></tr></tbody></table>
