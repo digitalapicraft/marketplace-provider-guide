@@ -3,26 +3,40 @@
 * [Introduction](introduction.md)
 * [Overview](overview.md)
 * [Getting started](getting-started.md)
+* [Features](features.md)
 
-## Provider workflow
+## Features
 
-* [Provider workflow](provider-workflow.md)
-* [Connecting your first gateway](connecting-your-first-gateway.md)
-* [Importing your first API](importing-your-first-api.md)
-* [Reviewing API governance](reviewing-api-governance.md)
-* [Publishing your first API](publishing-your-first-api.md)
-* [Reviewing API Products and Plans](reviewing-api-products-and-plans.md)
-* [Onboarding your first consumer](onboarding-your-first-consumer.md)
-* [Monitoring usage](monitoring-usage.md)
-* [Exposing APIs to AI agents](exposing-apis-to-ai-agents.md)
+* [Gateway connections](feat-gateway-connections.md)
+* [Documentation & repository sources](feat-documentation-sources.md)
+* [Importing APIs](feat-importing-apis.md)
+* [API governance](feat-api-governance.md)
+* [Publishing APIs](feat-publishing-apis.md)
+* [API Products & Plans](feat-products-and-plans.md)
+* [Subscriptions](feat-subscriptions.md)
+* [Consumer apps & credentials](feat-apps-and-credentials.md)
+* [Provider analytics](feat-provider-analytics.md)
+* [MCP servers](feat-mcp-servers.md)
+* [API GPT assistant](feat-api-gpt.md)
 
 ## Administration
 
 * [Administration](administration.md)
-* [Managing your team](managing-your-team.md)
-* [Configuring access and storefront branding](configuring-access-and-storefront-branding.md)
-* [Day-to-day operations](day-to-day-operations.md)
-* [Settings and personal preferences](settings.md)
+* [Team & members](feat-team-and-members.md)
+* [Roles & permissions](feat-roles-and-permissions.md)
+* [Single sign-on (SAML)](feat-single-sign-on.md)
+* [Branding & theming](feat-branding-and-theming.md)
+* [Custom domains](feat-custom-domains.md)
+* [Notifications](feat-notifications.md)
+* [Webhooks](feat-webhooks.md)
+* [Email templates](feat-email-templates.md)
+* [Content & pages](feat-content-and-pages.md)
+* [Governance rules](feat-governance-rules.md)
+* [Search configuration](feat-search.md)
+* [Audit log](feat-audit-log.md)
+* [Feature toggles](feat-feature-toggles.md)
+* [App Builder](feat-app-builder.md)
+* [Settings](settings.md)
 
 ## Reference
 

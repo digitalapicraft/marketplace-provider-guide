@@ -176,5 +176,5 @@ To manage your personal API tokens:
 {% endhint %}
 
 {% hint style="info" %}
-**Note:** Personal tokens authenticate management-plane calls only. They do not authenticate runtime API calls. Runtime calls use the API keys issued to consumer Apps as described in [Onboarding your first consumer](onboarding-your-first-consumer.md#onboarding-your-first-consumer).
+**Note:** Personal tokens authenticate management-plane calls only. They do not authenticate runtime API calls. Runtime calls use the API keys issued to consumer Apps as described in [Onboarding your first consumer](#onboarding-your-first-consumer).
 {% endhint %}
