@@ -10,10 +10,10 @@ The marketplace scores every API spec against a configurable set of linting rule
 
 The report and its per-API drilldown surface everything you need to triage and remediate:
 
-- **Score (0 to 100).** A single number per API, color-banded green (80+), amber (50 to 79), and red (below 50). Violations are weighted by severity, so one Error costs more than several Warnings. APIs not yet scanned read *N/A*.
-- **Severity-ranked violations.** Every finding carries a severity: **Error** (red, severity 1), **Warning** (amber, severity 2), or **Info** (grey, severity 3). The per-API Severity Summary counts each band so you clear Errors first.
+- **Score (0 to 100).** A single number per API: the average of the three category scores, each out of 100. The report bands it **Excellent** (80 and above), **Good** (60 to 79), **Fair** (40 to 59), and **Poor** (below 40). APIs not yet scanned read *N/A*.
+- **Severity-ranked violations.** Every finding carries a severity: **Error**, **Warning**, or **Info**. The per-API Severity Summary counts each band so you clear Errors first.
 - **Per-rule breakdown.** Each finding names the **Rule** that fired, the **Path** (JSON pointer to the offending spec location), and a one-line **Message** fix hint. Repeated rows for one rule usually point to a single root cause.
-- **Catalog summary panels.** **Score Distribution** (histogram across score bands), **Category Averages** (mean score per Security, Documentation, Naming, Operations), and **Top Violated Rules** (the five rules triggered most often). The top of that last list is where one fix moves the most scores.
+- **Catalog summary panels.** **Score Distribution** (count of APIs in each band), **Category Averages** (mean score for **Security**, **Style Guidelines**, and **Documentation**), and **Top Violated Rules** (the rules triggered most often). The top of that last list is where one fix moves the most scores.
 - **Remediation guidance.** Clicking a rule name opens a side panel with what the rule checks, why it matters, and a copy-ready compliant example under **How to fix it**.
 
 ## Use the report
@@ -37,7 +37,7 @@ The report and its per-API drilldown surface everything you need to triage and r
 
 ## Options
 
-The ruleset is fully configurable, not fixed. Rules are grouped into four categories (Security, Documentation, Naming, Operations), and each can be enabled, disabled, or re-weighted between Error, Warning, and Info severity. Tuning the ruleset is a separate task: see [Governance rules](feat-governance-rules.md). Re-scanning happens automatically when a spec changes; use **Scan All** for ruleset changes, first-time imports, or recovery from suspected drift.
+The ruleset is configurable, not fixed. Rules are grouped into three categories: **Security** (the OWASP API Security Top 10), **Style Guidelines**, and **Documentation**. Each rule can be enabled or disabled, and the overall score is the average of the three category scores. Tuning the ruleset is a separate task: see [Governance rules](feat-governance-rules.md). Re-scanning happens automatically when a spec changes; use **Scan All** for ruleset changes, first-time imports, or recovery from suspected drift.
 
 {% hint style="info" %}
 **Note:** The marketplace does not block publication on score. The bar is policy agreed with your API guild, not a hard gate in code.

@@ -2,48 +2,45 @@
 icon: list-check
 ---
 
-Governance rules are the linting rulesets that produce each API's governance score. Tune them when your team's API style guide changes, when a rule generates false positives, or when a new compliance requirement arrives. This is the configuration side of [API governance](feat-api-governance.md): that page reads the scores and findings, this one sets the rules and thresholds that produce them.
+Governance rules are the linting rules that produce each API's governance score. Tune them when your team's API style guide changes, when a rule generates false positives, or when a new compliance requirement arrives. This is the configuration side of [API governance](feat-api-governance.md): that page reads the scores and findings, this one decides which rules run.
 
-![Figure. API Governance Settings with score deductions, publish threshold, and rule-set tabs.](.gitbook/assets/screenshots/provider/admin-config-apim-api-linting.png)
+![Figure. API Governance Settings, with the scoring summary and the three rule-category links.](.gitbook/assets/screenshots/provider/admin-config-apim-api-linting.png)
+
+## How scoring works
+
+The overall score is a simple average of three category scores, each out of 100:
+
+**Overall score = (Security + Style + Documentation) / 3**
+
+You do not set point values by hand. You decide which rules are active in each category, and the category score reflects how an API does against its enabled rules. Each finding a rule raises carries a severity of **Error**, **Warning**, or **Info**.
 
 ## What you configure
 
-The page splits into two areas: the score-deduction controls and publish threshold at the top, and the per-rule tabs below. The settings you set are:
+The settings page opens on an **Overview** tab and has one tab per category. The three categories are:
 
-- **Error deduction**: points removed from an API's score for each Error-severity violation. Set high so a single Error has visible impact on the score.
-- **Warning deduction**: points removed per Warning-severity violation. Lower than Error.
-- **Info deduction**: points removed per Info-severity violation. A small impact for advisory findings.
-- **Hint deduction**: points removed per Hint-severity violation. The smallest impact, used for stylistic suggestions.
-- **Publish threshold**: a slider from 0 to 100. An API scoring below this value cannot be published until a Provider clears the violations or an admin overrides the gate.
-- **Rule tabs**: the rules grouped into three pillars, **Security**, **Style**, and **Documentation**. Each tab lists the rules in that pillar with the current severity and an enable/disable toggle per row.
+- **Security (OWASP).** The OWASP API Security Top 10 (2023) rules for authentication, authorization, and data protection. The tab header shows how many are on, for example *11 of 31 rules enabled*.
+- **Style Guidelines.** API style conventions: URL patterns, HTTP methods, and response structures. For example *10 of 18 rules enabled*.
+- **Documentation.** Completeness rules for descriptions, examples, and metadata. For example *10 of 13 rules enabled*.
 
-## Options
-
-Each rule carries one of four severities, ordered by score impact: **Error** (highest), **Warning**, **Info**, then **Hint** (lowest). Rules group by pillar: Security covers authentication, transport, and data exposure; Style covers naming, casing, and response shape; Documentation covers descriptions, examples, and summaries.
+Inside a category tab, each rule row shows the rule name, its severity, and an **Enabled** toggle. The **Scoring Configuration** section on the Overview tab controls how the category averages combine into the overall score.
 
 ## Configure
 
 1. From the left sidebar, expand **SETTINGS** and click **API Governance Settings**.
-2. Set the **Error**, **Warning**, **Info**, and **Hint** deduction fields to control how many points each severity removes from a score.
-3. Drag the **Publish threshold** slider to set the minimum score an API needs before it can be published.
-4. Click the **Security**, **Style**, or **Documentation** tab for the pillar that holds the rule you want.
-5. Find the rule in the list. Each row shows the name, current severity, and an enable/disable toggle.
-6. Change the severity from the row dropdown (**Error**, **Warning**, **Info**, or **Hint**), or flip the **Enabled** toggle off to retire a rule.
-7. Click **Save** at the bottom of the page.
-8. Re-scan an API to apply the change. Existing scan results are not re-scored automatically.
-
-## Per-Organisation override
-
-A default ruleset applies to every Organisation. To run a different standard for one Organisation, open its settings page from the **Organisations** list, open **Governance overrides**, toggle on **Use custom ruleset**, adjust the rules that should differ, and save. Every rule you leave unchanged falls through to the portal default, so future portal-default tightening still reaches the un-overridden rules for that Organisation. Use this for a legacy API exemption, a partner-imposed schema, or one Organisation running a tighter standard than the rest of the portal.
+2. On the **Overview** tab, read the scoring summary and open **Scoring Configuration** if you need to adjust how the categories combine.
+3. Click the **Security (OWASP)**, **Style Guidelines**, or **Documentation** category to open its rule list.
+4. Find the rule you want. Each row shows the name, severity, and an **Enabled** toggle.
+5. Turn a rule on or off with its toggle. Disabling a rule stops it from raising findings and from affecting that category's score.
+6. Click **Save configuration** at the top of the page.
+7. Re-scan an API to apply the change. Existing scan results are not re-scored automatically; use **Scan All** on the Governance Report to re-score the catalog.
 
 ## Verify
 
-- Reload the page and confirm the rule's severity and Enabled state hold the values you saved.
-- Re-scan a known API and confirm the new severity is reflected in its score.
-- Confirm any API whose score now falls below the **Publish threshold** is gated from publishing.
-- After an override, re-scan an API owned by that Organisation and confirm it reflects the custom ruleset, while an API in another Organisation scores unchanged.
+- Reload the page and confirm each category's enabled-rule count matches what you saved.
+- Re-scan a known API and confirm a rule you disabled no longer appears in its findings, and that the category score moves as expected.
+- Run **Scan All** after a ruleset change so every published API is re-scored against the new configuration.
 
-{% hint style="success" %}
-**Tip:** When you tighten a rule, re-run the governance scan on every published API the next morning. You will see which APIs newly fail the gate and need attention.
-**Result:** Every governance scan that runs after you save evaluates APIs against the updated ruleset and threshold.
+{% hint style="info" %}
+**Note:** Changing the ruleset does not retroactively re-score APIs and does not block any API from publishing. Treat the score as the quality bar your API guild agrees on, then re-scan to apply a change.
+**Result:** Every governance scan that runs after you save evaluates APIs against the rules you left enabled, and the average of the three category scores reflects the updated ruleset.
 {% endhint %}
