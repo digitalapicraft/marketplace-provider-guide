@@ -41,5 +41,5 @@ Status badges (Draft, Published, Pending), the search-and-filter bar on every li
 {% endstepper %}
 
 {% hint style="success" %}
-**Next.** Browse every capability under [Features](features.md), starting with [Gateway connections](feat-gateway-connections.md).
+**Next.** Work through the [How-to guides](connecting-sources.md), starting with [Gateway connections](feat-gateway-connections.md).
 {% endhint %}
