@@ -2,7 +2,7 @@
 icon: key
 ---
 
-Inspect the apps a consumer registered, the credentials issued against each app, and the subscriptions linked to it. Use this surface to vet an app before you approve it on the [Subscriptions](feat-subscriptions.md#subscriptions) queue, and to rotate a key when it is suspected leaked. Manage Apps shows every app the marketplace knows about, regardless of subscription state.
+Inspect the apps a consumer registered, the credentials issued against each app, and the subscriptions linked to it. Use this surface to vet an app before you approve it on the [Subscriptions](concept-publishing.md#subscriptions) queue, and to rotate a key when it is suspected leaked. Manage Apps shows every app the marketplace knows about, regardless of subscription state.
 
 ![Figure. The Manage Apps list showing consumer apps, owners, and subscription counts.](.gitbook/assets/screenshots/provider/admin-portal-manage-apps.png)
 

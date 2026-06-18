@@ -41,5 +41,5 @@ Status badges (Draft, Published, Pending), the search-and-filter bar on every li
 {% endstepper %}
 
 {% hint style="success" %}
-**Next.** Work through the [How-to guides](connecting-sources.md), starting with [Gateway connections](feat-gateway-connections.md).
+**Next.** Understand the platform in [Concepts](concept-foundations.md), then configure each surface with the [How-to guides](features.md), starting with [Gateway connections](feat-gateway-connections.md).
 {% endhint %}
