@@ -12,13 +12,41 @@ AI agents and copilots now call APIs alongside humans, so they are first-class c
 
 ## MCP servers expose APIs as agent tools
 
-MCP, the Model Context Protocol, is the open standard that AI agents use to discover and call tools. Astra publishes catalog APIs as MCP servers, so any MCP-compatible client, including assistants, IDE helpers and agent frameworks, can use your APIs as tools. Each API operation is offered to the agent as a callable tool, agents authenticate and are rate-limited like any consumer, and you list, configure and monitor the servers from the marketplace.
+MCP, the Model Context Protocol, is the open standard that AI agents use to discover and call tools. Astra publishes catalog APIs as MCP servers, so any MCP-compatible client can use your APIs as tools. Each API operation becomes a callable tool, agents authenticate and are rate-limited like any consumer, and Astra maps your OpenAPI operations to MCP tools automatically.
 
-Standing one up takes a few clicks rather than a custom build. You pick the catalog APIs to back the server, select which operations to expose, bind credentials so calls are authorised and metered, and publish. Astra maps your OpenAPI operations to MCP tools automatically and hosts the endpoint, so there is no bespoke MCP code to write.
+*Figure. Catalog APIs surface as MCP tools that agents call.*
+
+```mermaid
+flowchart LR
+    Catalog["Catalog APIs"] --> Server["MCP server"]
+    Server --> Tools["Tools"]
+    Tools --> Agents["AI agents"]
+```
+
+<details><summary>Standing up an MCP server</summary>
+
+You pick the catalog APIs to back the server, select which operations to expose, bind credentials so calls are authorised and metered, and publish. Astra hosts the endpoint, so there is no bespoke MCP code to write.
+
+</details>
 
 ## Where MCP servers are used
 
-An agent-callable API earns its keep across several settings:
+An agent-callable API earns its keep across several settings.
+
+*Figure. The main places an agent-callable API is used.*
+
+```mermaid
+mindmap
+  root((MCP use cases))
+    AI copilots
+    Agentic workflows
+    Partner agents
+    IDE assistants
+    Support automation
+    RAG grounding
+```
+
+<details><summary>Use cases in detail</summary>
 
 - **AI copilots** answer staff questions by calling customer, order or billing APIs.
 - **Agentic workflows** orchestrate multi-step tasks across several of your APIs.
@@ -27,8 +55,19 @@ An agent-callable API earns its keep across several settings:
 - **Support automation** resolves tickets by querying live APIs instead of wikis.
 - **RAG** grounds answers in real-time API data rather than stale documents.
 
+</details>
+
 ## API GPT speeds developer onboarding
 
-API GPT is a natural-language assistant grounded in your catalog and documentation. Developers ask in plain language and get the right API, endpoint, parameters and ready-to-run code, with citations back to the catalog. Because it draws on the live catalog, answers stay current. The result is less time hunting through docs, a faster first call, and fewer blockers waiting on provider support.
+API GPT is a natural-language assistant grounded in your catalog and documentation. Developers ask in plain language and get the right API, endpoint, parameters and ready-to-run code, with citations back to the catalog. Because it draws on the live catalog, answers stay current, which means less time hunting through docs and a faster first call.
+
+*Figure. Catalog and docs ground API GPT, which answers developers.*
+
+```mermaid
+flowchart LR
+    Catalog["Catalog APIs"] --> GPT["API GPT"]
+    Docs["Documentation"] --> GPT
+    GPT --> Answers["Developer answers"]
+```
 
 > **How-to:** for step-by-step configuration, see the How-to guides.

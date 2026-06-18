@@ -2,13 +2,37 @@
 icon: shield-halved
 ---
 
-Astra scores every API spec against a configurable ruleset and produces a single number from 0 to 100. Governance is how quality becomes a measured, repeatable step rather than a matter of opinion. This page explains what the score means, what the rules cover, and how the score works as a publication gate.
+Astra scores every API spec against a configurable ruleset and produces a single number from 0 to 100. Governance turns quality into a measured, repeatable step rather than a matter of opinion.
+
+*Governance runs as a loop until the score clears the bar.*
+
+```mermaid
+flowchart LR
+  S["Spec"] --> SC["Scan"]
+  SC --> R["Score and findings"]
+  R --> RM["Remediate"]
+  RM --> RS["Re-scan"]
+  RS -->|"score clears bar"| P["Ready to publish"]
+  RS -->|"still below bar"| RM
+```
 
 ![Figure. The API Governance Report with score and severity-ranked findings.](.gitbook/assets/screenshots/provider/admin-api-gov-report.png)
 
 ## The 0-100 score
 
-Each API gets one score: the average of three category scores, each out of 100. The Governance Report shows that number alongside severity-ranked findings and remediation guidance. Scores fall into bands that make the result readable at a glance:
+Each API gets one score: the average of three category scores, each out of 100.
+
+*Three category scores average into one number from 0 to 100.*
+
+```mermaid
+flowchart LR
+  SEC["Security OWASP"] --> AVG["Average"]
+  STY["Style"] --> AVG
+  DOC["Documentation"] --> AVG
+  AVG --> SCORE["Score 0 to 100"]
+```
+
+The Governance Report shows that number alongside severity-ranked findings and remediation guidance. Scores fall into bands:
 
 - **Excellent:** 80 and above.
 - **Good:** 60 to 79.
@@ -31,6 +55,8 @@ Every finding carries a severity: **Error**, **Warning**, or **Info**. Severity 
 
 ## The scoring lifecycle
 
+<details><summary>More detail</summary>
+
 Governance runs as a loop of three stages.
 
 1. **Score.** Astra scans the spec automatically when it changes, or on demand with a Scan All run across the whole catalog.
@@ -38,5 +64,7 @@ Governance runs as a loop of three stages.
 3. **Gate.** Treat the score as the bar an API must clear before it publishes, for example 80 or above.
 
 That gate is a policy bar your API guild agrees on, not a hard code-level block. The score informs the decision to publish; it does not mechanically prevent it. Re-scan after any change to the ruleset so scores stay comparable.
+
+</details>
 
 > **How-to:** for step-by-step configuration, see the How-to guides.
