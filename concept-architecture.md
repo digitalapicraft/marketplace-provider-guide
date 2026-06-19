@@ -10,27 +10,7 @@ Astra splits cleanly into two planes: a management plane that decides policy and
 
 Astra is the management plane and stays out of the request path. The gateway is the data plane and terminates every live call. The same concern is split across the two: Astra defines a plan's limits and the gateway enforces them; Astra provisions a credential and the gateway validates it on every call; Astra reads usage and the gateway meters it.
 
-*Astra decides policy and reads metadata; the gateway enforces it on every live call.*
-
-```mermaid
-flowchart LR
-    subgraph Mgmt["Management plane, Astra"]
-        I["Import specs and metadata"]
-        G["Govern and score"]
-        PUB["Publish catalogue"]
-        PL["Define products and plans"]
-        CR["Provision credentials"]
-    end
-    subgraph Data["Data plane, gateway"]
-        AU["Authenticate credential"]
-        EN["Enforce limits and policy"]
-        RT["Route to backend"]
-        MT["Meter usage"]
-    end
-    PL -->|"limits"| EN
-    CR -->|"credentials"| AU
-    MT -->|"usage metadata"| G
-```
+![Figure. What each plane owns, and the handoffs between them.](.gitbook/assets/screenshots/provider/arch-planes.png)
 
 <details><summary>What each plane owns</summary>
 
@@ -43,19 +23,7 @@ flowchart LR
 
 Three products form one path from publishing an API to consuming it. Marketplace manages and configures the gateway, then publishes its catalogue to the Developer Portal. Consumers subscribe in the portal; their apps then call the gateway directly. Astra Gateway is first-class, and third-party gateways federate the same way.
 
-*Marketplace configures the gateway and publishes to the portal; consumer apps call the gateway directly.*
-
-```mermaid
-graph TD
-    MP["Astra Marketplace, control plane"]
-    GW["Astra Gateway, data plane"]
-    DP["Developer Portal, consumer experience"]
-    APP["Consumer app"]
-    MP -->|"configure and meter"| GW
-    MP -->|"publish catalogue"| DP
-    DP -->|"subscribe and get keys"| APP
-    APP -->|"live API calls"| GW
-```
+![Figure. The product family and how the three products connect.](.gitbook/assets/screenshots/provider/arch-product-family.png)
 
 <details><summary>What each product does</summary>
 
@@ -69,20 +37,7 @@ graph TD
 
 Astra is built on Drupal CMS and PHP, deployed on Kubernetes, and multi-tenant by design so that every data access is scoped to its tenant. The stack runs in five layers, from the experience consumers touch down to the platform it all runs on.
 
-*The stack in layers, from the consumer experience down to the runtime platform.*
-
-```mermaid
-flowchart TD
-    EXP["Experience, Developer Portal, API Studio, MCP servers, API GPT"]
-    APP["Application, PHP services, governance and rating engines, subscription state machine"]
-    DATA["Data, PostgreSQL, cache bins, Queue API"]
-    INT["Integration, gateway connectors, billing adapters, identity"]
-    PLAT["Platform, Docker, Kubernetes, GitHub Actions"]
-    EXP --> APP
-    APP --> DATA
-    DATA --> INT
-    INT --> PLAT
-```
+![Figure. The technology stack in five layers.](.gitbook/assets/screenshots/provider/arch-stack.png)
 
 <details><summary>What each layer holds</summary>
 

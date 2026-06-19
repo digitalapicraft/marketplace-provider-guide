@@ -6,7 +6,7 @@ The consumer experience is the journey an external developer takes through your 
 
 ![Figure. The consumer journey across the sign-in boundary.](.gitbook/assets/screenshots/provider/consumer-journey.png)
 
-![Figure. The public catalog where the consumer journey begins.](.gitbook/assets/screenshots/provider/mkt-storefront-apis.png)
+![Figure. The public storefront where the consumer journey begins.](.gitbook/assets/screenshots/provider/mkt-storefront-home.png)
 
 ## The auth boundary
 
