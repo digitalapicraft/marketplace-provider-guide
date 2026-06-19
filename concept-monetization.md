@@ -4,22 +4,13 @@ icon: file-invoice-dollar
 
 Monetization is the pricing brain of the marketplace. It turns metered API consumption into revenue by tracking plans, subscriptions, usage, invoices and payouts in one place, while delegating the movement of money to an external billing platform. This page explains what the model is and why it is built this way.
 
+![Figure. The pricing brain: product to plan to subscription to usage to invoice to payout.](.gitbook/assets/screenshots/provider/pricing-brain.png)
+
 ![Figure. The API Monetization dashboard, showing plans, active subscriptions, open invoices and pending payouts.](.gitbook/assets/screenshots/provider/admin-monetization-dashboard.png)
 
 ## The monetization model
 
 Six objects carry an API call from price to paid invoice: a **product** bundles APIs into a subscribable offering, a **plan** attaches price, quota and tiers, a **subscription** links a consumer app to a plan, **usage records** capture metered calls, **invoices** roll rated usage into line items, and **payouts** disburse a provider's revenue share.
-
-*Figure. How the six objects chain from price to payout.*
-
-```mermaid
-flowchart LR
-    Product["Product"] --> Plan["Plan"]
-    Plan --> Subscription["Subscription"]
-    Subscription --> Usage["Usage records"]
-    Usage --> Invoice["Invoice"]
-    Invoice --> Payout["Payout"]
-```
 
 ## The eight pricing models
 
@@ -55,16 +46,7 @@ Apps call the customer's own gateway directly. That gateway enforces quotas, and
 
 Metered calls flow through a fixed pipeline. A window stays open through the grace period, closes, and is rated into an invoice, so delayed federated usage still bills fairly.
 
-*Figure. From raw call to rated invoice line.*
-
-```mermaid
-flowchart LR
-    Sources["Sources"] --> Raw["Raw record"]
-    Raw --> Normalized["Normalized events"]
-    Normalized --> Windows["Aggregation windows"]
-    Windows --> Adjustments["Adjustments"]
-    Adjustments --> Invoice["Invoice"]
-```
+![Figure. The usage metering pipeline and the billing-window states.](.gitbook/assets/screenshots/provider/usage-pipeline.png)
 
 ## Pluggable billing adapters
 

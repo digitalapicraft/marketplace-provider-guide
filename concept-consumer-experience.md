@@ -4,22 +4,7 @@ icon: user
 
 The consumer experience is the journey an external developer takes through your branded developer portal, from an anonymous first look at the catalog to a real, authenticated API call. It is one connected flow across a single auth boundary: discovery is open to anyone, consumption needs an account. The goal throughout is short time-to-first-call.
 
-*The journey runs left to right across the auth boundary, with sign-up or SSO as the bridge.*
-
-```mermaid
-flowchart LR
-  subgraph Anon["Anonymous"]
-    A["Discover APIs"] --> B["Explore the spec"]
-  end
-  Bridge["Sign up or SSO"]
-  subgraph Auth["Authenticated"]
-    C["Subscribe to a plan"] --> D["Manage apps and keys"]
-    D --> E["Test in browser"]
-    E --> F["Track usage"]
-  end
-  B --> Bridge
-  Bridge --> C
-```
+![Figure. The consumer journey across the sign-in boundary.](.gitbook/assets/screenshots/provider/consumer-journey.png)
 
 ![Figure. The public catalog where the consumer journey begins.](.gitbook/assets/screenshots/provider/mkt-storefront-apis.png)
 

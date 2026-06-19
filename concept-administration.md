@@ -4,33 +4,9 @@ icon: users-gear
 
 Administration is the set of controls behind a running marketplace, grouped into four themes that span fifteen areas. It governs who belongs and what they can do, how the portal looks and reads, how people and systems learn what happened, and how the platform is tuned over time. This page explains what each theme covers and why the controls are organised this way.
 
+![Figure. The fifteen administration areas across four themes.](.gitbook/assets/screenshots/provider/admin-map.png)
+
 ![Figure. Organisation members and their roles.](.gitbook/assets/screenshots/provider/admin-organisations.png)
-
-*Figure. The four themes and the fifteen areas they cover.*
-
-```mermaid
-mindmap
-  root((Administration))
-    People and access
-      Team
-      Roles
-      SSO
-    Brand and storefront
-      Branding
-      Domains
-      Content
-    Communications
-      Notifications
-      Webhooks
-      Email templates
-    Platform config
-      Governance rules
-      Search
-      Audit log
-      Feature toggles
-      App Builder
-      Settings
-```
 
 ## People & access
 

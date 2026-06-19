@@ -4,15 +4,7 @@ icon: network-wired
 
 A source is any system Astra reads API definitions from. You point Astra at the gateways and repositories where your APIs already live, and it brings those definitions into the catalog. Connections are read-only by design.
 
-*The path a definition travels from its source to a catalog draft.*
-
-```mermaid
-flowchart LR
-  G["Gateways"] --> C["Connection, read only"]
-  R["Specs and repos"] --> C
-  C --> I["Import"]
-  I --> D["Catalog draft"]
-```
+![Figure. Gateways and spec repositories connect read-only and import into one catalogue.](.gitbook/assets/screenshots/provider/source-fan-in.png)
 
 ![Figure. Manage API Sources showing connected gateways and repositories.](.gitbook/assets/screenshots/provider/admin-apim-connections.png)
 
@@ -26,30 +18,6 @@ Both kinds land their APIs in the same catalog, so a repository-sourced API sits
 ## What Astra federates
 
 Many sources fan into one catalog, so consumers browse a single shelf regardless of where each API was authored or hosted.
-
-*Several gateways and repositories fan into one shared catalog.*
-
-```mermaid
-flowchart LR
-  subgraph Gateways
-    AG["Astra Gateway"]
-    AP["Apigee"]
-    KO["Kong"]
-    CL["AWS, Azure, IBM"]
-  end
-  subgraph Repos
-    SH["SwaggerHub"]
-    GH["GitHub"]
-    PM["Postman"]
-  end
-  AG --> CAT["One catalog"]
-  AP --> CAT
-  KO --> CAT
-  CL --> CAT
-  SH --> CAT
-  GH --> CAT
-  PM --> CAT
-```
 
 <details><summary>More detail</summary>
 

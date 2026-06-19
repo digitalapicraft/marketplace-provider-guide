@@ -4,33 +4,13 @@ icon: shield-halved
 
 Astra scores every API spec against a configurable ruleset and produces a single number from 0 to 100. Governance turns quality into a measured, repeatable step rather than a matter of opinion.
 
-*Governance runs as a loop until the score clears the bar.*
-
-```mermaid
-flowchart LR
-  S["Spec"] --> SC["Scan"]
-  SC --> R["Score and findings"]
-  R --> RM["Remediate"]
-  RM --> RS["Re-scan"]
-  RS -->|"score clears bar"| P["Ready to publish"]
-  RS -->|"still below bar"| RM
-```
+![Figure. The governance scoring lifecycle and the three categories behind the score.](.gitbook/assets/screenshots/provider/governance-lifecycle.png)
 
 ![Figure. The API Governance Report with score and severity-ranked findings.](.gitbook/assets/screenshots/provider/admin-api-gov-report.png)
 
 ## The 0-100 score
 
 Each API gets one score: the average of three category scores, each out of 100.
-
-*Three category scores average into one number from 0 to 100.*
-
-```mermaid
-flowchart LR
-  SEC["Security OWASP"] --> AVG["Average"]
-  STY["Style"] --> AVG
-  DOC["Documentation"] --> AVG
-  AVG --> SCORE["Score 0 to 100"]
-```
 
 The Governance Report shows that number alongside severity-ranked findings and remediation guidance. Scores fall into bands:
 

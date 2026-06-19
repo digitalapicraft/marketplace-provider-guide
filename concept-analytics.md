@@ -4,16 +4,7 @@ icon: chart-line
 
 Analytics and reporting is the adoption lens over your marketplace: it turns the usage the gateway records into a view of who is adopting what and how it performs. Provider analytics gives product owners built-in dashboards, while custom reports build the specific slices teams watch. Both read the same underlying data, so the picture stays consistent.
 
-*Usage flows from the gateway through metadata into dashboards and reports, which inform investment decisions.*
-
-```mermaid
-flowchart LR
-  A["Gateway meters calls"] --> B["Usage metadata"]
-  B --> C["Provider analytics"]
-  B --> D["Custom reports"]
-  C --> E["Decide what to invest in"]
-  D --> E
-```
+![Figure. From metered calls to the decisions they inform.](.gitbook/assets/screenshots/provider/analytics-flow.png)
 
 ![Figure. Provider analytics showing adoption and traffic.](.gitbook/assets/screenshots/provider/admin-portal-analytics.png)
 

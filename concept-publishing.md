@@ -4,16 +4,7 @@ icon: box-archive
 
 Publishing turns a governed API into something a consumer can find and subscribe to. Productizing packages one or more APIs into a subscribable unit with commercial terms attached.
 
-*From a governed API through to a consumer app holding credentials.*
-
-```mermaid
-flowchart LR
-  A["Governed API"] --> B["Publish"]
-  B --> C["Product"]
-  C --> D["Plan"]
-  D --> E["Subscription"]
-  E --> F["App with credentials"]
-```
+![Figure. From a governed API to a working app, with the subscription lifecycle.](.gitbook/assets/screenshots/provider/publish-chain.png)
 
 ![Figure. Manage API Products, where APIs are bundled into subscribable units.](.gitbook/assets/screenshots/provider/admin-manage-api-products.png)
 
@@ -35,19 +26,6 @@ Plans attach the commercial and operational terms to a Product. Each plan sets a
 ## Subscriptions
 
 A subscription links a consumer's app to an API or Product under a chosen plan. Providers review requests and manage each subscription through its life.
-
-*A subscription moves through these states over its life.*
-
-```mermaid
-stateDiagram-v2
-  [*] --> Pending
-  Pending --> Active
-  Active --> Suspended
-  Suspended --> Active
-  Active --> Revoked
-  Suspended --> Revoked
-  Revoked --> [*]
-```
 
 - **Request:** a consumer requests a subscription to a Product under a plan.
 - **Approve or reject:** providers approve, optionally with a reason; auto-approval is configurable.
