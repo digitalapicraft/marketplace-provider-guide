@@ -35,10 +35,10 @@ Where the gateway sits decides who meters and who enforces.
 
 {% tabs %}
 {% tab title="Proxy mode" %}
-Astra Gateway sits in the request path, meters every call and enforces quotas in real time. Billing is exact, and all eight pricing models apply: fixed, pay-as-you-go, flat + quota, tiered, volume, freemium, revenue share and hybrid.
+Helix Gateway sits in the request path, meters every call and enforces quotas in real time. Billing is exact, and all eight pricing models apply: fixed, pay-as-you-go, flat + quota, tiered, volume, freemium, revenue share and hybrid.
 {% endtab %}
 {% tab title="Federated mode" %}
-Apps call the customer's own gateway directly. That gateway enforces quotas, and Astra collects usage afterward with some delay. Billing closes after a grace period, and the model suits per-call, freemium and soft-quota pricing.
+Apps call the customer's own gateway directly. That gateway enforces quotas, and Helix collects usage afterward with some delay. Billing closes after a grace period, and the model suits per-call, freemium and soft-quota pricing.
 {% endtab %}
 {% endtabs %}
 
@@ -50,6 +50,6 @@ Metered calls flow through a fixed pipeline. A window stays open through the gra
 
 ## Pluggable billing adapters
 
-Astra prices and rates; an external platform invoices, charges and reconciles. Billing plan mappings link an Astra rate plan to a product and price in Stripe, Kill Bill, Zuora or Chargebee. Switching platforms is a configuration change behind one adapter interface, not a rebuild.
+Helix prices and rates; an external platform invoices, charges and reconciles. Billing plan mappings link a Helix rate plan to a product and price in Stripe, Kill Bill, Zuora or Chargebee. Switching platforms is a configuration change behind one adapter interface, not a rebuild.
 
 > **How-to:** for step-by-step configuration, see the How-to guides.

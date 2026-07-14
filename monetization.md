@@ -10,7 +10,7 @@ Monetization turns API consumption into revenue. It is the pricing brain for the
 
 How monetization meters and enforces depends on where the gateway sits:
 
-- **Proxy mode.** Astra Gateway sits in the request path, so the marketplace meters every call and enforces quotas in real time. Every pricing model is available, and billing is exact per call.
+- **Proxy mode.** Helix Gateway sits in the request path, so the marketplace meters every call and enforces quotas in real time. Every pricing model is available, and billing is exact per call.
 - **Federated mode.** Consumer applications call the gateway directly. The gateway enforces quotas; the marketplace collects usage after the fact and closes each billing window after a grace period. Simpler pricing (per-call, freemium, soft-quota) applies, and billing is eventual rather than per-call.
 
 ## What you configure

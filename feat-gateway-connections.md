@@ -12,7 +12,7 @@ A gateway connection registers a supported gateway so the marketplace can read i
 
 The Add New Source panel groups its tiles under two headings:
 
-- **API Gateways.** Runtime gateways. The visible tiles are **Aelix**, **Apigee Edge**, **ApigeeX**, **APISIX**, **AWS API Gateway**, **Azure**, **IBM API Connect**, **Kong**, **MuleSoft**, **Tyk**, and **WSO2** (marked *Coming Soon*).
+- **API Gateways.** Runtime gateways. The visible tiles are **Helix**, **Apigee Edge**, **ApigeeX**, **APISIX**, **AWS API Gateway**, **Azure**, **IBM API Connect**, **Kong**, **MuleSoft**, **Tyk**, and **WSO2** (marked *Coming Soon*).
 - **API Collections / Repositories.** Spec-only and design-time sources (SwaggerHub, Postman, Azure Repos, GitHub, Bitbucket). These are documented separately in [Documentation and repository sources](feat-documentation-sources.md).
 
 Each gateway tile carries a **+ Add Connection** action. Clicking the action (or the tile body) opens that gateway's Add Connection form at `/admin/apim/connection/add/<gateway>`. A top-right **Manage Documentation Sources** button toggles the view to the spec/repository tiles; you do not need it for gateway connections.
@@ -234,23 +234,23 @@ Use this when your APIs run on Apache APISIX. APISIX requires both the Admin API
 **Caution:** The default APISIX admin key in `config.yaml` is well-known. Rotate it to a strong value before exposing the Admin API to any external caller.
 {% endhint %}
 
-## Add an Aelix connection
+## Add a Helix connection
 
-Use this when your APIs run on Aelix. Aelix authenticates with the email and password of an Aelix control-plane user.
+Use this when your APIs run on Helix. Helix authenticates with the email and password of a Helix control-plane user.
 
-1. From the left sidebar, select **Manage API Sources**, then click the **Aelix** tile.
+1. From the left sidebar, select **Manage API Sources**, then click the **Helix** tile.
 2. Complete the fields:
    - **Connection Name**: text (required, max 128).
    - **Description**: text (optional).
-   - **Control Plane Endpoint URL**: text (required, max 128). The Aelix control-plane URL.
-   - **Email**: text (required, max 254). An Aelix user with read access.
+   - **Control Plane Endpoint URL**: text (required, max 128). The Helix control-plane URL.
+   - **Email**: text (required, max 254). An Helix user with read access.
    - **Password**: text (required, max 128). The password for that user.
 3. Click **Test connection**, then **Save**.
 
-![The Add Aelix Connection form.](.gitbook/assets/screenshots/provider/admin-apim-connection-add-aelix.png)
+![The Add Helix Connection form.](.gitbook/assets/screenshots/provider/admin-apim-connection-add-aelix.png)
 
 {% hint style="success" %}
-**Tip:** Create a dedicated Aelix service user for the marketplace and grant read-only scopes only, so a stolen credential cannot mutate routes.
+**Tip:** Create a dedicated Helix service user for the marketplace and grant read-only scopes only, so a stolen credential cannot mutate routes.
 {% endhint %}
 
 ## Test a connection

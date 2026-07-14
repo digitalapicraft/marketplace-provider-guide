@@ -2,7 +2,7 @@
 icon: shield-halved
 ---
 
-Astra scores every API spec against a configurable ruleset and produces a single number from 0 to 100. Governance turns quality into a measured, repeatable step rather than a matter of opinion.
+Helix scores every API spec against a configurable ruleset and produces a single number from 0 to 100. Governance turns quality into a measured, repeatable step rather than a matter of opinion.
 
 ![Figure. The governance scoring lifecycle and the three categories behind the score.](.gitbook/assets/screenshots/provider/governance-lifecycle.png)
 
@@ -39,7 +39,7 @@ Every finding carries a severity: **Error**, **Warning**, or **Info**. Severity 
 
 Governance runs as a loop of three stages.
 
-1. **Score.** Astra scans the spec automatically when it changes, or on demand with a Scan All run across the whole catalog.
+1. **Score.** Helix scans the spec automatically when it changes, or on demand with a Scan All run across the whole catalog.
 2. **Remediate.** Open a finding to read its compliant example, fix the spec at the named path, and re-scan to confirm the fix.
 3. **Gate.** Treat the score as the bar an API must clear before it publishes, for example 80 or above.
 

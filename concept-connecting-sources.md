@@ -2,7 +2,7 @@
 icon: network-wired
 ---
 
-A source is any system Astra reads API definitions from. You point Astra at the gateways and repositories where your APIs already live, and it brings those definitions into the catalog. Connections are read-only by design.
+A source is any system Helix reads API definitions from. You point Helix at the gateways and repositories where your APIs already live, and it brings those definitions into the catalog. Connections are read-only by design.
 
 ![Figure. Gateways and spec repositories connect read-only and import into one catalogue.](.gitbook/assets/screenshots/provider/source-fan-in.png)
 
@@ -10,18 +10,18 @@ A source is any system Astra reads API definitions from. You point Astra at the 
 
 ## Two kinds of source
 
-- **Gateway connections.** A credentialed link to an API gateway. Astra lists the APIs that gateway exposes and keeps them in sync. You pick a gateway type, name the connection, and supply its base URL and credentials.
+- **Gateway connections.** A credentialed link to an API gateway. Helix lists the APIs that gateway exposes and keeps them in sync. You pick a gateway type, name the connection, and supply its base URL and credentials.
 - **Spec and repository sources.** A link to where API definitions are authored or stored. This covers design-first APIs that do not sit behind a gateway yet, such as an OpenAPI file in version control or a SwaggerHub workspace.
 
 Both kinds land their APIs in the same catalog, so a repository-sourced API sits alongside a gateway-sourced one with no distinction to the consumer.
 
-## What Astra federates
+## What Helix federates
 
 Many sources fan into one catalog, so consumers browse a single shelf regardless of where each API was authored or hosted.
 
 <details><summary>More detail</summary>
 
-- **API gateways:** Astra Gateway, Apigee, Kong, APISIX, MuleSoft, and Tyk. Astra Gateway is first-class; the third-party gateways connect the same way.
+- **API gateways:** Helix Gateway, Apigee, Kong, APISIX, MuleSoft, and Tyk. Helix Gateway is first-class; the third-party gateways connect the same way.
 - **Cloud gateways:** AWS API Gateway, Azure APIM, and IBM API Connect.
 - **Specs and repositories:** SwaggerHub, GitHub, Bitbucket, Azure Repos, and Postman.
 
@@ -31,7 +31,7 @@ For repository sources you choose the repo, branch, and path, so that re-imports
 
 ## Read, not route
 
-A connection reads metadata only. It never carries live traffic and never sits in the request path. Credentials are encrypted and scoped to the connection, and Astra uses them to list and read API definitions, not to proxy calls. This keeps the marketplace out of the data plane: your gateways continue to serve traffic exactly as before.
+A connection reads metadata only. It never carries live traffic and never sits in the request path. Credentials are encrypted and scoped to the connection, and Helix uses them to list and read API definitions, not to proxy calls. This keeps the marketplace out of the data plane: your gateways continue to serve traffic exactly as before.
 
 ## Importing brings APIs in as drafts
 

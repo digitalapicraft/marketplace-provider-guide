@@ -70,7 +70,7 @@ Marketplace is the enterprise console that delivers these capabilities. The stor
 
 ## Platform capabilities
 
-- **Multi-gateway connections.** Register a connection to any supported gateway (Apigee, Apigee X, Kong, MuleSoft, AWS API Gateway, Azure API Management, IBM API Connect, Tyk, APISIX, Aelix). The marketplace reads APIs and Products from the connected gateway without relocating them.
+- **Multi-gateway connections.** Register a connection to any supported gateway (Apigee, Apigee X, Kong, MuleSoft, AWS API Gateway, Azure API Management, IBM API Connect, Tyk, APISIX, Helix). The marketplace reads APIs and Products from the connected gateway without relocating them.
 - **Documentation and repository sources.** Pull API specifications from spec registries (SwaggerHub, Postman) and source-control systems (GitHub, Bitbucket, Azure Repos) for APIs not yet behind a runtime gateway.
 - **Synchronised API and Product catalog.** Maintain a unified catalog populated from every connected source. Synchronisation is automatic and incremental; gateway-side changes propagate on the next cycle.
 - **Consumer-facing metadata enrichment.** Complete each API and Product with the title, overview, long-form documentation, logo, categories, and tags consumers see in the storefront.

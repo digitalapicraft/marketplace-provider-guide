@@ -2,11 +2,11 @@
 icon: compass
 ---
 
-Astra Marketplace is a multi-gateway API marketplace and developer portal. It federates the API gateways you already run into one branded place where teams publish APIs as products and consumers discover, subscribe to, and consume them. Astra manages APIs across gateways, so it is the marketplace layer rather than another gateway.
+Helix Marketplace is a multi-gateway API marketplace and developer portal. It federates the API gateways you already run into one branded place where teams publish APIs as products and consumers discover, subscribe to, and consume them. Helix manages APIs across gateways, so it is the marketplace layer rather than another gateway.
 
 ![Figure. The marketplace value loop, from publishing an API to reinvesting the revenue it earns.](.gitbook/assets/screenshots/provider/value-loop.png)
 
-![Figure. The Astra control-plane dashboard.](.gitbook/assets/screenshots/provider/admin-dashboard.png)
+![Figure. The Helix control-plane dashboard.](.gitbook/assets/screenshots/provider/admin-dashboard.png)
 
 ## What the marketplace is
 
@@ -25,7 +25,7 @@ Published APIs become products in a governed catalogue. Consumers discover and s
 
 The shift is from gatekept to self-service. Organisations that exposed their systems as governed API products outgrew the ones that kept them locked away.
 
-| Old way | With Astra |
+| Old way | With Helix |
 |---|---|
 | Request access through an admin team | Consumers self-serve discovery and keys |
 | Wait on a gatekeeper to publish | Publishing runs through governance, not tickets |
@@ -33,7 +33,7 @@ The shift is from gatekept to self-service. Organisations that exposed their sys
 
 ## The management plane
 
-Astra sits above your gateways as a management plane. It reads from them and never proxies live traffic, so it stays out of the latency path while keeping control of the catalogue. Live API calls flow straight from a consumer app to the gateway; Astra imports, governs, publishes, and meters around that path.
+Helix sits above your gateways as a management plane. It reads from them and never proxies live traffic, so it stays out of the latency path while keeping control of the catalogue. Live API calls flow straight from a consumer app to the gateway; Helix imports, governs, publishes, and meters around that path.
 
 ## The two sides
 
@@ -48,7 +48,7 @@ The same platform serves two audiences, joined by Products and Subscriptions.
 
 ## Time to first call
 
-The north-star metric is time to first call: how fast a new consumer makes their first successful call. Maturity runs from manual access taking days, to same-day self-registration, to under ten minutes, to instant in-browser try-it. Astra targets the top of that ladder with a public catalogue, always-current docs, in-browser testing, and copy-paste samples.
+The north-star metric is time to first call: how fast a new consumer makes their first successful call. Maturity runs from manual access taking days, to same-day self-registration, to under ten minutes, to instant in-browser try-it. Helix targets the top of that ladder with a public catalogue, always-current docs, in-browser testing, and copy-paste samples.
 
 ## Roles and responsibilities
 

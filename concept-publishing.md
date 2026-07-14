@@ -36,11 +36,11 @@ Subscription state is the source of truth the gateway honours on every call.
 
 ## Apps & credentials
 
-An app is the consumer's application that holds credentials. When a subscription is active, Astra provisions credentials to the gateway, which validates them on every request.
+An app is the consumer's application that holds credentials. When a subscription is active, Helix provisions credentials to the gateway, which validates them on every request.
 
 - **Register:** a consumer creates an app, which can hold several subscriptions.
 - **Credentials:** a client identifier and secret, or an API key, are issued.
-- **Validated downstream:** the gateway checks the credential on every call. Astra issues and provisions; the gateway enforces, and the portal stays out of the request path.
+- **Validated downstream:** the gateway checks the credential on every call. Helix issues and provisions; the gateway enforces, and the portal stays out of the request path.
 - **Rotate and revoke:** keys rotate without losing the subscription, and revoking a subscription cuts access.
 
 > **How-to:** for step-by-step configuration, see the How-to guides.

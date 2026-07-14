@@ -14,11 +14,11 @@ AI agents and copilots now call APIs alongside humans, so they are first-class c
 
 ## MCP servers expose APIs as agent tools
 
-MCP, the Model Context Protocol, is the open standard that AI agents use to discover and call tools. Astra publishes catalog APIs as MCP servers, so any MCP-compatible client can use your APIs as tools. Each API operation becomes a callable tool, agents authenticate and are rate-limited like any consumer, and Astra maps your OpenAPI operations to MCP tools automatically.
+MCP, the Model Context Protocol, is the open standard that AI agents use to discover and call tools. Helix publishes catalog APIs as MCP servers, so any MCP-compatible client can use your APIs as tools. Each API operation becomes a callable tool, agents authenticate and are rate-limited like any consumer, and Helix maps your OpenAPI operations to MCP tools automatically.
 
 <details><summary>Standing up an MCP server</summary>
 
-You pick the catalog APIs to back the server, select which operations to expose, bind credentials so calls are authorised and metered, and publish. Astra hosts the endpoint, so there is no bespoke MCP code to write.
+You pick the catalog APIs to back the server, select which operations to expose, bind credentials so calls are authorised and metered, and publish. Helix hosts the endpoint, so there is no bespoke MCP code to write.
 
 </details>
 

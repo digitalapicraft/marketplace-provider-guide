@@ -17,7 +17,7 @@ Provider analytics answers the product owner's first questions: what is being ad
 - **Top products:** which products and APIs drive the most usage.
 - **Subscriber health:** active, idle, and at-risk subscriptions at a glance.
 
-Astra reports what the gateway meters. The marketplace is not in the request path, so freshness depends on how usage is collected: continuous collection is close to real time, batched collection carries a delay.
+Helix reports what the gateway meters. The marketplace is not in the request path, so freshness depends on how usage is collected: continuous collection is close to real time, batched collection carries a delay.
 
 ## Custom reports
 
