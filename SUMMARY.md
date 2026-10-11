@@ -52,6 +52,7 @@
 ## Reference
 
 * [Reference](reference.md)
+* [Admin API reference](admin-api.md)
 * [Troubleshooting](troubleshooting.md)
 * [FAQs](faqs.md)
 * [Additional resources](additional-resources.md)
